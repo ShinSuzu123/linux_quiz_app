@@ -12,3 +12,28 @@
 ### 課題解決方法
 - クイズアプリ作りながらコマンド等の学習をする。
 
+# 使用技術
+FE
+- HTML/CSS
+- javascript
+- jQuery
+
+BE
+- PHP
+
+DB
+- MySQL
+
+infra
+- AWS
+
+# 機能一覧
+
+
+# テーブル設計
+
+
+# 画面遷移図
+
+
+
