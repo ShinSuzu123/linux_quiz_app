@@ -65,7 +65,7 @@ body {
   width: 100%; /* 幅自体を100%に設定 */ 
 }
 
-.footer-logo {
+/* .footer-logo {
   color: #fff;
   font-family: "Nico Moji";
   /* display: flex;  */
@@ -74,4 +74,4 @@ body {
   /* 要素内のコンテンツを垂直方向に中央寄せ */
   /* justify-content: flex-end;  */
   /* 右寄せに設定 */
-}
+/* } */
