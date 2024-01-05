@@ -49,6 +49,30 @@ body {
 
 /* main */
 
+/* メニュー欄 */
+.category {
+  min-width: 270px;
+  /* 影入れるか？ */
+}
+
+.menu_title {
+  font-size: 25px;
+  font-weight: bold;
+  color:black;
+  font-family: "Nico Moji";
+  padding: 10px;
+  text-align: center;
+}
+
+.menu_list {
+  padding: 20px 10px;
+  font-weight: bold;
+  font-family: "Nico Moji";
+}
+
+.ul {
+  list-style: none;
+}
 
 /* footer */
 .footer {
@@ -61,7 +85,6 @@ body {
   width: 100%; /* 幅自体を100%に設定 */
   height: 7%;
 }
-
 
 .footer .menu {
   margin: 2%;
