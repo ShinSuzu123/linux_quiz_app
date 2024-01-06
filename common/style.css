@@ -72,11 +72,20 @@ body {
   display: block;
 }
 
-
-
 /* main */
+/* リストのボタン */
+.quiz-btn {
+  margin-top: 50px;
+}
 
-
+button{
+  display: inline-block;
+  padding: 20px 100px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  margin: 18px 114px auto;
+}
 
 /* footer */
 .footer {
