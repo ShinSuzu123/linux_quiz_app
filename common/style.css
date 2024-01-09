@@ -7,10 +7,6 @@ a {
   text-decoration: none;
 }
 
-/* body {
-  overflow-y: scroll;
-} スクロール可能にする */
-
 .long-content {
   height: 3000px;
 }
@@ -51,7 +47,7 @@ body {
   padding: 6px 16px;
   border-radius: 6px;
   text-decoration: none;
-  font-family: "Nico Moji";
+  /* font-family: "Nico Moji"; */
 }
 
 .dropdown {
@@ -175,7 +171,7 @@ a {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  font-family: "Nico Moji";
+  /* font-family: "Nico Moji"; */
 }
 
 .footer a {

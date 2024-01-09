@@ -47,7 +47,7 @@ body {
     padding: 6px 16px;
     border-radius: 6px;
     text-decoration: none;
-    font-family: "Nico Moji";
+    /* font-family: "Nico Moji"; */
 }
 
 .dropdown {
@@ -96,7 +96,7 @@ body {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    font-family: "Nico Moji";
+    /* font-family: "Nico Moji"; */
 }
 
 .footer a {
