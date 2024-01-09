@@ -8,7 +8,7 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="logo"><a href="101_quiz.html">LPIC lv.1 アタック!</a></h1>
+        <h1 class="quiz-logo"><a href="101_quiz.html">LPIC lv.1 アタック!</a></h1>
         <nav class="nav">
             <ul class="list">
                 <li class="item"><a href="other/mypage.html">マイページ</a></li>
@@ -26,16 +26,82 @@
         </div>
 
         <!-- 問題一覧 -->
-        <div class="101_quiz_list">
-            <h2>101問題一覧</h2>
-            <li><a href="quiz/101/l_101_1.html">コマンド基礎とファイル操作</a></li>
-            <li><a href="quiz/101/l_101_2.html">正規表現とviエディタ</a></li>
-            <li><a href="quiz/101/l_101_3.html">プロセス管理</a></li>
-            <li><a href="quiz/101/l_101_4.html">ファイルシステムの管理</a></li>
-            <li><a href="quiz/101/l_101_5.html">ファイルの管理</a></li>
-            <li><a href="quiz/101/l_101_6.html">ソフトウェア管理</a></li>
-            <li><a href="quiz/101/l_101_7.html">システムアーキテクチャ</a></li>
-            <p>全カテゴリーからランダムで出題(リンクボタン)</p>
+        <h2>101問題一覧</h2>
+
+        <div class="quiz-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>問題項目</th>
+                        <th>問題数</th>
+                        <th>順番出題</th>
+                        <th>ランダム出題</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <td>コマンド基礎とファイル操作</td>
+                        <td>問題数</td>
+                        <td><button class="start-button" onclick="location.href='quiz/101/l_101_1.html'">開始ボタン</button></td>
+                        <td><button class="start-button">開始ボタン</button></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <td>正規表現とviエディタ</td>
+                        <td>問題数</td>
+                        <td><button class="start-button" onclick="location.href='quiz/101/l_101_2.html'">開始ボタン</button></td>
+                        <td><button class="start-button">開始ボタン</button></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <td>プロセス管理</td>
+                        <td>問題数</td>
+                        <td><button class="start-button" onclick="location.href='quiz/101/l_101_3.html'">開始ボタン</button></td>
+                        <td><button class="start-button">開始ボタン</button></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <td>ファイルシステムの管理</td>
+                        <td>問題数</td>
+                        <td><button class="start-button" onclick="location.href='quiz/101/l_101_4.html'">開始ボタン</button></td>
+                        <td><button class="start-button">開始ボタン</button></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <td>ファイルの管理</td>
+                        <td>問題数</td>
+                        <td><button class="start-button" onclick="location.href='quiz/101/l_101_5.html'">開始ボタン</button></td>
+                        <td><button class="start-button">開始ボタン</button></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <td>ソフトウェア管理</td>
+                        <td>問題数</td>
+                        <td><button class="start-button" onclick="location.href='quiz/101/l_101_6.html'">開始ボタン</button></td>
+                        <td><button class="start-button">開始ボタン</button></td>
+                    </tr>
+                </tbody>
+
+                <tbody>
+                    <tr>
+                        <td>システムアーキテクチャ</td>
+                        <td>問題数</td>
+                        <td><button class="start-button" onclick="location.href='quiz/101/l_101_7.html'">開始ボタン</button></td>
+                        <td><button class="start-button">開始ボタン</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </main>
 
