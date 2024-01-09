@@ -80,23 +80,28 @@ body {
 }
 
 /* main */
-/* リストのボタン */
-.quiz-btn {
-  margin-top: 50px;
+/* 章 */
+.quiz_btn {
+  margin-top: 20px;
 }
 
-button{
-  display: inline-block;
-  padding: 20px 100px;
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
   background-color: black;
   color: #fff;
-  text-align: center;
-  margin: 18px 114px auto;
+  border: none;
 }
 
 /* 問題一覧 */
 h2 {
-  /* text-align: center; */
+  text-align: center;
   border-bottom: 2px solid #ccc; /*下線*/
   padding-bottom: 10px; /* 下の余白を追加 */
   font-family: 'Arial' , sans-serif;
@@ -151,8 +156,6 @@ a {
   display: inline-block;
   font-size: 16px;
 }
-
-
 
 /* footer */
 .footer {
