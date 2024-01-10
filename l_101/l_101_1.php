@@ -37,3 +37,14 @@
     </footer>
 </body>
 </html>
+
+<?php
+$host = "localhost";
+$username = "testuser";
+$password = "testpass";
+$dbname = "lpic_quiz";
+
+// DBへの接続
+
+
+?>

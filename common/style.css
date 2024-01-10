@@ -1,78 +1,51 @@
 ul {
   list-style-type: none;
-}
+} /*リンスとのマーカーを非表示*/
 
 a {
   color: inherit;
   text-decoration: none;
-}
+} /*親要素から色を継承し下線を非表示*/
 
-.long-content {
-  height: 3000px;
-}
-
-/* 余白を消す */
 body {
   margin: 0;
   padding: 0;
-  background-color: #fff;
-}
+} /*ページ全体の余白とパディングを無効化*/
 
 /* header */
 .header {
-  padding: 0px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0px 30px; /*上下左右の余白を設定*/
+  display: flex; /*フレックスボックスを使用して要素を配置*/
+  justify-content: space-between; /*ヘッダー内で左右に配置*/
+  align-items: center; /*中央に配置する*/
   background-color: black;
 }
 
 .quiz-logo {
   color: #fff;
-  font-weight: bold;
-  font-size: 25px;
-  font-family: "Nico Moji";
+  font-weight: bold; /*太字のフォントを適用*/
+  font-size: 25px; /*フォントサイズを指定する*/
+  font-family: "Nico Moji"; /*フォントをニコ文字にする*/
 }
 
 .list {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  font-size: 16px;
-  font-weight: bold;
+  display: flex; /*水平に配置する*/
+  align-items: center; /*子要素を垂直方向に中央に配置*/
+  gap: 32px; /*水平方向の隙間を指定*/
+  font-size: 16px; /*フォントサイズ指定*/
+  font-weight: bold; /*太字フォント*/
 }
 
 .item {
   color: #fff;
-  padding: 6px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  /* font-family: "Nico Moji"; */
-}
-
-.dropdown {
-  display: inline-block;
+  padding: 6px 16px; /*余白を指定*/
+  text-decoration: none; /*下線非表示*/
 }
 
 .btn {
   font-size: 16px;
-  border: none;
-  outline: none;
-  
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: black;
-  min-width: 160px;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: #fff;
-  padding: 12px 16px;
-  display: block;
+  border: none; /*ボーダー無効*/
+  outline: none; /*アウトライン無効*/
 }
 
 /* main */
@@ -93,6 +66,12 @@ button {
   background-color: black;
   color: #fff;
   border: none;
+}
+
+.list_btn {
+  border: 1px solid white;
+  padding: 8px;
+  text-align: left;
 }
 
 /* 問題一覧 */
@@ -171,7 +150,6 @@ a {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  /* font-family: "Nico Moji"; */
 }
 
 .footer a {
