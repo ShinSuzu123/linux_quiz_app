@@ -100,7 +100,8 @@ th, td{
 } /*灰色の境界線を追加、内部の余白を8pxに設定する。*/
 
 th {
-  background-color: white;
+  background-color: #f5f5f5
+  ;
 }
 
 a {
