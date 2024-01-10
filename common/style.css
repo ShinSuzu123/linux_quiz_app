@@ -51,13 +51,13 @@ body {
 /* main */
 /* 章 */
 .quiz_btn {
-  margin-top: 20px;
+  margin-top: 20px; /*上方向に余白設定*/
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-  border: none;
+  border-collapse: collapse; /*セル間の隙間をなくす*/
+  width: 100%; /*テーブル幅を広げる*/
+  border: none; /*境界線非表示*/
 }
 
 button {
@@ -65,13 +65,13 @@ button {
   padding: 10px;
   background-color: black;
   color: #fff;
-  border: none;
+  border: none; /*ボーダー無効*/
 }
 
 .list_btn {
-  border: 1px solid white;
-  padding: 8px;
-  text-align: left;
+  border: 1px solid white; /*線の細さとスタイル色を指定*/
+  padding: 8px; /*要素の内側の余白を設定*/
+  text-align: left; /*要素内のテキストを左寄せ*/
 }
 
 /* 問題一覧 */
@@ -100,17 +100,17 @@ th, td{
 } /*灰色の境界線を追加、内部の余白を8pxに設定する。*/
 
 th {
-  background-color: #f2f2f2;
+  background-color: white;
 }
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: white;
 }
 
 .start-button {
   background-color: black;
-  color: #fff;
+  color: white;
   border: none;
   padding: 8px 12px;
   text-align: center;
