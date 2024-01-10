@@ -11,7 +11,7 @@
         <h1 class="quiz-logo"><a href="101_quiz.html">LPIC lv.1 アタック!</a></h1>
         <nav class="nav">
             <ul class="list">
-                <li class="item"><a href="other/mypage.html">マイページ</a></li>
+                <li class="item"><a href="../other/mypage.html">マイページ</a></li>
                 <li class="item"><a href="login.html">ログイン</a></li>
             </ul>
         </nav>
@@ -31,8 +31,8 @@
 
     <footer class="footer">
         <ul class="menu">
-            <li><a href="about.html">このサイトについて</a></li>
-            <li><a href="inquiry.html">お問い合わせ</a></li>
+            <li><a href="../other/about.html">このサイトについて</a></li>
+            <li><a href="../other/inquiry.html">お問い合わせ</a></li>
         </ul>
     </footer>
 </body>
