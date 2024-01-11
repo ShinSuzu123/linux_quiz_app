@@ -48,27 +48,30 @@
                         $("#questions-container").append(questionHTML);
                     }
 
-                    // 回答送信のボタンを表示
-                    // var submitButton = '<button id="submit-all">完了</button>';
-                    // $("#questions-container").append(submitButton);
+                    // 「完了」ボタンの配置
+                    var finishButton = '<button id="finish-quiz">解答を終了する</button>';
+                    $("#questions-container").append(finishButton);
 
-                    // $(".answer-form").submit(function(event) {
-                    //     event.preventDefault();
+                    // 回答送信
+                    $(".answer-form").submit(function(event) {
+                        event.preventDefault();
 
-                    //     var formData = $(this).serialize();
-                    //     var questionID = $(this).find('input[name="question_id"]').val();
+                        var formData = $(this).serialize();
+                        var questionID = $(this).find('input[name="question_id"]').val();
+                    
+                        $.post("check_answer.php", formData, function(data) {
+                            $("#result" + questionID).html(data.result);
+                            $("#explanation" + questionID).html(data.explanation);
+                        }, 'json');
+                    });
 
-                    //     $.post("check_answer.php", formData, function(data) {
-                    //         $("#result" + questionID).html(data.result);
-                    //         $("#explanation" + questionID).html(data.explanation);
-                    //     }, 'json');
-                    // });
-
-                    // 解答送信
-                    // $("#submit-all").click(function() {
-                    //     console.log("ボタンが正しく送信されました")
-                    //     $(".answer-form").submit();
-                    // });
+                    // 「完了」ボタンが押された後の処理
+                    $("#finish-quiz").click(function() {
+                        //全ての回答フォームを一斉に送信
+                        $(".answer-form").submit();
+                        // 「完了」ボタンを非表示にする
+                        $(this).hide();
+                    });
                 });
             });
         </script>
