@@ -19,14 +19,14 @@
 
     <main>
     <h1>コマンド基礎とファイル操作</h1>
-        <p>問題１</p>
+        <!-- <p>問題１</p>
         <p>階層を移動する際に使うコマンドは？</p>
         <input type="radio" name="ans" value="1"> ls
         <input type="radio" name="ans" value="2"> cd
         <input type="radio" name="ans" value="3"> mkdir
         <input type="radio" name="ans" value="4"> tar
 
-        回答送信ボタン
+        回答送信ボタン -->
     </main>
 
     <footer class="footer">
@@ -38,13 +38,13 @@
 </body>
 </html>
 
-<?php
-$host = "localhost";
-$username = "testuser";
-$password = "testpass";
-$dbname = "lpic_quiz";
+<!-- <?php  -->
+// $host = "localhost";
+// $username = "testuser";
+// $password = "testpass";
+// $dbname = "lpic_quiz";
 
-// DBへの接続
+// // DBへの接続
 
 
-?>
+// ?>
