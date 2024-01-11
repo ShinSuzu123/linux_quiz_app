@@ -5,6 +5,7 @@
     <title>LPIC lv.1 アタック!</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href="../common/style.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -18,15 +19,57 @@
     </header>
 
     <main>
-    <h2>コマンド基礎とファイル操作</h2>
-        <!-- <p>問題１</p>
-        <p>階層を移動する際に使うコマンドは？</p>
-        <input type="radio" name="ans" value="1"> ls
-        <input type="radio" name="ans" value="2"> cd
-        <input type="radio" name="ans" value="3"> mkdir
-        <input type="radio" name="ans" value="4"> tar
+        <h2>コマンド基礎とファイル操作</h2>
 
-        回答送信ボタン -->
+        <div id="questions-container"></div>
+
+        <script>
+            $(document).ready(function() {
+                // カテゴリーを指定して問題を取得
+                var category = "コマンド基礎とファイル操作"; // 取得するカテゴリを指定する
+                $.get("get_questions.php?category=" + category, function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        var question = data[i];
+                        var questionHTML = '<div class="question" id="question ' + i + '">';
+                        questionHTML += '<h3>' + ' ■ ' + question.question_text + '</h3>';
+                        questionHTML += '<form class="answer-form" name="question_id" value="' + question.id + '">';
+                        // questionHTML += '<p>選択肢: </p>';
+                        questionHTML += '<input type="radio" name="ans" value="1"> ' + question.option1;
+                        questionHTML += '<input type="radio" name="ans" value="2"> ' + question.option2;
+                        questionHTML += '<input type="radio" name="ans" value="3"> ' + question.option3;
+                        questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
+                        questionHTML += '</form>';
+                        questionHTML += '<div class="result" id="result' + i + '"></div>';
+                        questionHTML += '<div class="explanation" id="explanation' + i +'"></div>';
+                        questionHTML += '</div>';
+
+                        $("#questions-container").append(questionHTML);
+                    }
+
+                    // 回答送信のボタンを表示
+                    // var submitButton = '<button id="submit-all">完了</button>';
+                    // $("#questions-container").append(submitButton);
+
+                    // $(".answer-form").submit(function(event) {
+                    //     event.preventDefault();
+
+                    //     var formData = $(this).serialize();
+                    //     var questionID = $(this).find('input[name="question_id"]').val();
+
+                    //     $.post("check_answer.php", formData, function(data) {
+                    //         $("#result" + questionID).html(data.result);
+                    //         $("#explanation" + questionID).html(data.explanation);
+                    //     }, 'json');
+                    // });
+
+                    // 解答送信
+                    // $("#submit-all").click(function() {
+                    //     console.log("ボタンが正しく送信されました")
+                    //     $(".answer-form").submit();
+                    // });
+                });
+            });
+        </script>
     </main>
 
     <footer class="footer">
@@ -37,14 +80,3 @@
     </footer>
 </body>
 </html>
-
-<!-- <?php  -->
-// $host = "localhost";
-// $username = "testuser";
-// $password = "testpass";
-// $dbname = "lpic_quiz";
-
-// // DBへの接続
-
-
-// ?>
