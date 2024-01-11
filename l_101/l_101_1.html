@@ -31,14 +31,16 @@
                     for (var i = 0; i < data.length; i++) {
                         var question = data[i];
                         var questionHTML = '<div class="question" id="question ' + i + '">';
+                        //問題
                         questionHTML += '<h3>' + ' ■ ' + question.question_text + '</h3>';
+                        //選択肢
                         questionHTML += '<form class="answer-form" name="question_id" value="' + question.id + '">';
-                        // questionHTML += '<p>選択肢: </p>';
                         questionHTML += '<input type="radio" name="ans" value="1"> ' + question.option1;
                         questionHTML += '<input type="radio" name="ans" value="2"> ' + question.option2;
                         questionHTML += '<input type="radio" name="ans" value="3"> ' + question.option3;
                         questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
                         questionHTML += '</form>';
+                        //結果と解説
                         questionHTML += '<div class="result" id="result' + i + '"></div>';
                         questionHTML += '<div class="explanation" id="explanation' + i +'"></div>';
                         questionHTML += '</div>';
