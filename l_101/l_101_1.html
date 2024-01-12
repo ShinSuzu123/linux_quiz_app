@@ -58,7 +58,13 @@
 
                         var formData = $(this).serialize();
                         var questionID = $(this).find('input[name="question_id"]').val();
-                    
+                        
+                        // ラジオボタンが選択されているかの確認
+                        if (!$('input[name="ans"]:checked').val()) {
+                            alert("回答してない問題があります");
+                            return; // 回答してない問題があれば処理を中断できる。
+                        }
+
                         $.post("check_answer.php", formData, function(data) {
                             $("#result" + questionID).html(data.result);
                             $("#explanation" + questionID).html(data.explanation);
