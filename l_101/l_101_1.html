@@ -48,29 +48,6 @@
                         $("#questions-container").append(questionHTML);
                     }
 
-                    // 「完了」ボタンの配置
-                    var finishButton = '<button id="finish-quiz">完了する</button>';
-                    $("#questions-container").append(finishButton);
-
-                    // 回答送信
-                    $(".answer-form").submit(function(event) {
-                        event.preventDefault();
-
-                        var formData = $(this).serialize();
-                        var questionID = $(this).find('input[name="question_id"]').val();
-                        
-                        // ラジオボタンが選択されているかの確認
-                        if (!$('input[name="ans"]:checked').val()) {
-                            alert("回答してない問題があります");
-                            return; // 回答してない問題があれば処理を中断できる。
-                        }
-
-                        $.post("check_answer.php", formData, function(data) {
-                            $("#result" + questionID).html(data.result);
-                            $("#explanation" + questionID).html(data.explanation);
-                        }, 'json');
-                    });
-
                     // 「完了」ボタンが押された後の処理
                     $("#finish-quiz").click(function() {
                         //全ての回答フォームを一斉に送信
