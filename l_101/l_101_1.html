@@ -40,16 +40,12 @@
                         // 問題
                         questionHTML += '<h4>' + question.question_text + '</h4>';
                         // 選択肢
-                        questionHTML += '<form class="answer-form" name="question_id" value="' + question.id + '">';
-                        questionHTML += '<input type="radio" name="ans" value="1"> ' + question.option1;
-                        questionHTML += '<input type="radio" name="ans" value="2"> ' + question.option2;
-                        questionHTML += '<input type="radio" name="ans" value="3"> ' + question.option3;
-                        questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
+                        questionHTML += '<form action="ans_questions.php" method="post" class="answer-form" name="question_id" value="' + question.id + '">';
+                        questionHTML += '<input type="radio" name="ans[]" value="1"> ' + question.option1;
+                        questionHTML += '<input type="radio" name="ans[]" value="2"> ' + question.option2;
+                        questionHTML += '<input type="radio" name="ans[]" value="3"> ' + question.option3;
+                        questionHTML += '<input type="radio" name="ans[]" value="4"> ' + question.option4;
                         questionHTML += '</form>';
-                        // 結果と解説
-                        // questionHTML += '<div class="result" id="result' + questionNumber + '"></div>';
-                        // questionHTML += '<div class="explanation" id="explanation' + questionNumber +'"></div>';
-                        // questionHTML += '</div>';
 
                         $("#questions-container").append(questionHTML);
                     }
@@ -57,7 +53,7 @@
                     // 「完了」ボタンが押された後の処理
                     $("#finish-quiz").click(function() {
                         //全ての回答フォームを一斉に送信
-                        // $(".answer-form").submit();
+                        $(".answer-form").submit();
                         // 「完了」ボタンを非表示にする
                         $(this).hide();
                     });
