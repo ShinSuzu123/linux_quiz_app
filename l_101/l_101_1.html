@@ -25,7 +25,10 @@
         <div id="questions-container"></div>
 
         <!-- 完了ボタン -->
-        <!-- <button id="finish-quiz">完了</button> -->
+        <button id="finish-quiz">完了</button>
+
+        <!-- エラーメッセージ -->
+        <!-- <div id="error-message"></div> -->
 
         <script>
             $(document).ready(function() {
@@ -48,7 +51,7 @@
                         // 問題
                         questionHTML += '<h4>' + question.question_text + '</h4>';
                         // 選択肢
-                        questionHTML += '<form class="answer-form" action="ans_question.php" method="post">';
+                        questionHTML += '<form class="answer-form" action="ans_questions.php" method="post">';
                         questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
                         questionHTML += '<input type="radio" name="ans" value="1"> ' + question.option1;
                         questionHTML += '<input type="radio" name="ans" value="2"> ' + question.option2;
@@ -56,7 +59,7 @@
                         questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
                         questionHTML += '</input>';
 
-                        // 
+                        // questions-containerに追加
                         $("#questions-container").append(questionHTML);
                     } else {
                         //問題データが取得できなかった場合のエラーハンドリング
@@ -64,13 +67,38 @@
                     }
                 });
 
-                    // 「完了」ボタンが押された後の処理
-                    // $("#finish-quiz").click(function() {
-                    //     //全ての回答フォームを一斉に送信
-                    //     $(".answer-form").submit();
-                    //     // 「完了」ボタンを非表示にする
-                    //     $(this).hide();
-                    // });
+                // 解答送信処理
+                $(".answer-form").submit(function(event) {
+                    event.preventDefault();
+
+                    var formData =$(this).serialize();
+                    var questionID = $(this).find('input[name="question_id"]').val();
+                    var userAnswer = $(this).find('input[name="ans"]:checked').val();
+                
+                    // 解答が空欄の場合エラーメッセージを表示して処理終了
+                    // if (!userAnswer) {
+                    //     $("#error-message").html("解答してください");
+                    //     return;
+                    // }
+
+                    // // エラーメッセージをクリア
+                    // $("#error-message").html("");
+
+                    // 解答送信
+                    $.post("ans_questions.php", formData, function(data) {
+                        $("$result" + questionID).html(data.result);
+                        $("#explanation" + questionID).html(data.explanation);
+                    }, 'json');
+                });
+
+
+                // 「完了」ボタンが押された後の処理
+                $("#finish-quiz").click(function() {
+                    //全ての回答フォームを一斉に送信
+                    $(".answer-form").submit();
+                    // 「完了」ボタンを非表示にする
+                    $(this).hide();
+                });
             });
         </script>
     </main>

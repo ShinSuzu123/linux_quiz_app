@@ -20,6 +20,22 @@
 
     <main>
         <h2>解答・解説</h2>
+        <div id="result-container"></div>
+
+        <script>
+            $(document).ready(function() {
+                // 解答結果を取得
+                var result = "<?php echo isset($_GET['result']) ? $_GET['result'] : ''; ?>";
+                var explanation = "<?php echo isset($_GET['explanation']) ? urldecode($_GET['explanation']) : ''; ?>";
+
+                // 結果と解説を表示
+                var resultHTML = '<p>結果: ' + result + '</p>';
+                var explanationHTML = '<p>解説:' + explanation + '</p>';
+                $('#result-container').html(resultHTML + explanationHTML);
+            });
+        </script>
+
+        <a href="l_101_1.html">戻る</a>
     </main>
 
     <footer class="footer">
