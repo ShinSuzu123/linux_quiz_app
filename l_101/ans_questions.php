@@ -5,22 +5,12 @@ $username = "testuser";
 $password = "testpass";
 $dbname = "lpic_quiz";
 
-// $ans = $_POST["ans"];
-
+$ans = $_POST["ans"];
 
 // 複数表示のメモ
 // foreach ($ans as $quiz_id => $res) {
 //     echo($res);
 // };
-
-// var_dump($ans);
-// try {
-//     // PDOによるDB接続
-//     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    
-//     // エラーモードを設定
-//     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// }
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -29,13 +19,6 @@ try {
     // POSTデータから受け取った解答と問題ID
     $userAnswer = isset($_POST['ans']) ? $_POST['ans'] : '';
     $questionID = isset($_POST['question_id']) ? $_POST['question_id'] : '';
-
-    // // 解答が空欄の場合処理
-    // if (empty($userAnswer)) {
-    //     $response = array(
-    //         ’
-    //     );
-    // }
 
     // 問題の正解をデータベースから取得
     $stmt = $conn->prepare("SELECT correct_option, explanation FROM questions WHERE id = :question_id");
