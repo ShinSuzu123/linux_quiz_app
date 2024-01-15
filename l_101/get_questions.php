@@ -8,14 +8,15 @@ $dbname = "lpic_quiz";
 try {
     // PDOによるDB接続
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-    
     // エラーモードを設定
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // 特定のカテゴリーの問題一覧を取得
+    // カテゴリーを取得
     $category = isset($_GET['category']) ? $_GET['category'] : ''; // カテゴリーのパラメーターの取得
-    $stmt = $conn->prepare("SELECT * FROM questions WHERE category = :category"); // プリペアステートメントの作成
-    $stmt->bindParam('category', $category); // パラメーターのバインド
+    
+    //特定のカテゴリーを取得
+    $stmt = $conn->prepare("SELECT * FROM questions WHERE category = :category LIMIT 1"); // プリペアステートメントの作成
+    $stmt->bindParam(':category', $category); // パラメーターのバインド
     $stmt->execute(); // クエリの実行
     $questions = $stmt->fetchAll(PDO::FETCH_ASSOC); // 結果の取得
 

@@ -22,45 +22,53 @@
         <h2>コマンド基礎とファイル操作</h2>
 
         <!-- 問題一覧 -->
-        <!-- <div id="questions-container"></div> -->
+        <div id="questions-container"></div>
 
         <!-- 完了ボタン -->
-        <button id="finish-quiz">完了</button>
+        <!-- <button id="finish-quiz">完了</button> -->
 
-        <!-- <script>
+        <script>
             $(document).ready(function() {
                 // カテゴリーを指定して問題を取得
                 var category = "コマンド基礎とファイル操作"; // 取得するカテゴリを指定する
-                $.get("get_questions.php?category=" + category, function(data) {
-                    for (var i = 0; i < data.length; i++) {
-                        var question = data[i];
-                        var questionNumber = i + 1;
-                        var questionHTML = '<div class="question" id="question' + questionNumber + '">';
-                        // 問題番号
-                        questionHTML += '<h3>問 ' + questionNumber + '<h3>';
+                // $.get("get_questions.php?category=" + category, function(data) {
+                $.get("get_questions.php", {category: category}, function(data) {
+                    //データが正常に取得できた場合の処理
+                    console.log(data)
+                    
+                    if (data && data.length > 0) {
+                        // 問題データが正常に取得できた場合の処理
+                        var question = data[0];
+                        console.log(question);
+
+                        var questionHTML = '<div class="question">';
                         // 問題
                         questionHTML += '<h4>' + question.question_text + '</h4>';
                         // 選択肢
-                        questionHTML += '<form action="ans_questions.php" method="post" class="answer-form" name="question_id" value="' + question.id + '">';
-                        questionHTML += '<input type="radio" name="ans[]" value="1"> ' + question.option1;
-                        questionHTML += '<input type="radio" name="ans[]" value="2"> ' + question.option2;
-                        questionHTML += '<input type="radio" name="ans[]" value="3"> ' + question.option3;
-                        questionHTML += '<input type="radio" name="ans[]" value="4"> ' + question.option4;
-                        questionHTML += '</form>';
+                        questionHTML += '<form class="answer-form" action="ans_question.php" method="post">';
+                        questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
+                        questionHTML += '<input type="radio" name="ans" value="1"> ' + question.option1;
+                        questionHTML += '<input type="radio" name="ans" value="2"> ' + question.option2;
+                        questionHTML += '<input type="radio" name="ans" value="3"> ' + question.option3;
+                        questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
+                        questionHTML += '</input>';
 
                         $("#questions-container").append(questionHTML);
+                    } else {
+                        //問題データが取得できなかった場合のエラーハンドリング
+                        console.log("問題データが取得でませんでした");
                     }
+                });
 
                     // 「完了」ボタンが押された後の処理
-                    $("#finish-quiz").click(function() {
-                        //全ての回答フォームを一斉に送信
-                        $(".answer-form").submit();
-                        // 「完了」ボタンを非表示にする
-                        $(this).hide();
-                    });
-                });
+                    // $("#finish-quiz").click(function() {
+                    //     //全ての回答フォームを一斉に送信
+                    //     $(".answer-form").submit();
+                    //     // 「完了」ボタンを非表示にする
+                    //     $(this).hide();
+                    // });
             });
-        </script> -->
+        </script>
     </main>
 
     <footer class="footer">
