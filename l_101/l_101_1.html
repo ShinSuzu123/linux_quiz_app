@@ -36,9 +36,12 @@
                     //データが正常に取得できた場合の処理
                     console.log(data)
                     
+                    // データが存在しかつ０より大きい場合取得
                     if (data && data.length > 0) {
                         // 問題データが正常に取得できた場合の処理
                         var question = data[0];
+
+                        // データが取得できているかコンソール上で確認(のちに消去)
                         console.log(question);
 
                         var questionHTML = '<div class="question">';
@@ -53,6 +56,7 @@
                         questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
                         questionHTML += '</input>';
 
+                        // 
                         $("#questions-container").append(questionHTML);
                     } else {
                         //問題データが取得できなかった場合のエラーハンドリング
