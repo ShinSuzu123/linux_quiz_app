@@ -37,7 +37,7 @@
                 // $.get("get_questions.php?category=" + category, function(data) {
                 $.get("get_questions.php", {category: category}, function(data) {
                     //データが正常に取得できた場合の処理
-                    console.log(data)
+                    // console.log(data)
                     
                     // データが存在しかつ０より大きい場合取得
                     if (data && data.length > 0) {
@@ -88,16 +88,26 @@
                     $.post("ans_questions.php", formData, function(data) {
                         $("$result" + questionID).html(data.result);
                         $("#explanation" + questionID).html(data.explanation);
+                    
+                        // // 「完了」ボタンが押された後の処理
+                        // $("#finish-quiz").click(function() {
+                        //     // 「完了」ボタンを非表示にする
+                        //     $("#answer-form").submit();
+
+                        //     // 解答・解説ページに遷移
+                        //     window.location.href = "l_101_1_ans.html";
+                        // });
                     }, 'json');
                 });
 
-
-                // 「完了」ボタンが押された後の処理
+                //「完了」ボタンが押された後の処理
                 $("#finish-quiz").click(function() {
                     //全ての回答フォームを一斉に送信
                     $(".answer-form").submit();
                     // 「完了」ボタンを非表示にする
                     $(this).hide();
+                    // 解答・解説ページに遷移
+                    window.location.href = "l_101_1_ans.html";
                 });
             });
         </script>

@@ -5,12 +5,15 @@ $username = "testuser";
 $password = "testpass";
 $dbname = "lpic_quiz";
 
-$ans = $_POST["ans"];
+// $ans = $_POST["ans"];
 
 // 複数表示のメモ
 // foreach ($ans as $quiz_id => $res) {
-//     echo($res);
+//     ($res);
 // };
+
+// POSTで情報を受け取っているかの確認
+// error_log("Received POST request to ans_questions.php\n", 3, "debug.log");
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -30,21 +33,22 @@ try {
     $isCorrect = ($userAnswer === $result['correct_option']);
 
     // 正解・不正解と解説をJSON形式で返す
-    // $response = array(
-    //     'result' => $isCorrect ? '正解' : '不正解',
-    //     'explanation' => $result['explanation'],
-    // );
+    $response = array(
+        'result' => $isCorrect ? '正解' : '不正解',
+        'explanation' => $result['explanation'],
+    );
 
-    session_start();
-    $_SESSION['result'] = $isCorrect ? '正解' : '不正解';
-    $_SESSION['explanation'] = $result['explanation'];
+    // session_start();
+    // $_SESSION['result'] = $isCorrect ? '正解' : '不正解';
+    // $_SESSION['explanation'] = $result['explanation'];
 
     // JSON形式でクライエントに返す
-    // header('Content-Type: application/json');
-    // echo json_encode($response);
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    // echo json_encode($_SESSION);
 
-    header('Location: l_101_1_ans.html');
-    exit();
+    // header('Location: l_101_1_ans.html');
+    // exit();
 
 } catch(PDOException $e) {
     // エラーが発生した場合の処理

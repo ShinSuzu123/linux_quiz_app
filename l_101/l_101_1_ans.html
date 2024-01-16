@@ -22,22 +22,39 @@
         <h2>解答・解説</h2>
         <div id="result-container"></div>
 
-        <!-- <script>
+        <script>
             $(document).ready(function() {
-                // 解答結果を取得
-                var result = "<?php echo isset($_SESSION['result']) ? $_SESSION['result'] : ''; ?>";
-                var explanation = "<?php echo isset($_SESSION['explanation']) ? urldecode($_SESSION['explanation']) : ''; ?>";
-
-
+            //     // サーバーからの結果を取得するAjaxリクエスト
+            //     $.ajax({
+            //         type: "POST",
+            //         url: "ans_questions.php",
+            //         data: { ans: '', question_id: '問題ID'}, // ユーザーの解答と問題IDを適切な値に置き換える
+            //         dataType: 'json',
+            //         success: function(response) {
+            //             //サーバーからの応答処理
+            //             $("#result").text('結果: ' + response.result);
+            //             $("#explanation").text('解説: ' + response.explanation);
+            //         },
+            //         error: function(error) {
+            //             // エラー時の処理
+            //             console.log("Ajaxのエラー:", error);
+            //         }
+            //     })
                 
+
+
+                // 解答結果を取得
+                console.log(data);
+                $.post("ans_questions.php", formData, function(data) {
                 // 結果と解説を表示
                 var resultHTML = '<p>結果: ' + result + '</p>';
                 var explanationHTML = '<p>解説:' + explanation + '</p>';
                 $('#result-container').html(resultHTML + explanationHTML);
+                } , 'json');
             });
-        </script> -->
+        </script>
 
-        <a href="l_101_1.html">戻る</a>
+        <a href="../101_quiz.html">戻る</a>
     </main>
 
     <footer class="footer">
