@@ -63,6 +63,8 @@ table {
 button {
   width: 100%;
   padding: 10px;
+  /* margin-left: 10px;
+  margin-right: 10px; */
   background-color: black;
   color: #fff;
   border: none; /*ボーダー無効*/

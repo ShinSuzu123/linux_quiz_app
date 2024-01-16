@@ -15,7 +15,7 @@ try {
     $category = isset($_GET['category']) ? $_GET['category'] : ''; // カテゴリーのパラメーターの取得
     
     //特定のカテゴリーを取得
-    $stmt = $conn->prepare("SELECT * FROM questions WHERE category = :category LIMIT 1"); // プリペアステートメントの作成
+    $stmt = $conn->prepare("SELECT * FROM questions WHERE category = :category"); // カテゴリーのパラメーターの取得
     $stmt->bindParam(':category', $category); // パラメーターのバインド
     $stmt->execute(); // クエリの実行
     $questions = $stmt->fetchAll(PDO::FETCH_ASSOC); // 結果の取得

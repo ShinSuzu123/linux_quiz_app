@@ -34,18 +34,13 @@ try {
 
     // 正解・不正解と解説をJSON形式で返す
     $response = array(
-        'result' => $isCorrect ? '正解' : '不正解',
+        'isCorrect' => $isCorrect,
         'explanation' => $result['explanation'],
     );
-
-    // session_start();
-    // $_SESSION['result'] = $isCorrect ? '正解' : '不正解';
-    // $_SESSION['explanation'] = $result['explanation'];
 
     // JSON形式でクライエントに返す
     header('Content-Type: application/json');
     echo json_encode($response);
-    // echo json_encode($_SESSION);
 
     // header('Location: l_101_1_ans.html');
     // exit();

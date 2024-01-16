@@ -20,29 +20,13 @@
 
     <main>
         <h2>解答・解説</h2>
-        <div id="result-container"></div>
+        <div id="result-container">
+            <p id="result"></p>
+            <p id="explanation"></p>
+        </div>
 
         <script>
             $(document).ready(function() {
-            //     // サーバーからの結果を取得するAjaxリクエスト
-            //     $.ajax({
-            //         type: "POST",
-            //         url: "ans_questions.php",
-            //         data: { ans: '', question_id: '問題ID'}, // ユーザーの解答と問題IDを適切な値に置き換える
-            //         dataType: 'json',
-            //         success: function(response) {
-            //             //サーバーからの応答処理
-            //             $("#result").text('結果: ' + response.result);
-            //             $("#explanation").text('解説: ' + response.explanation);
-            //         },
-            //         error: function(error) {
-            //             // エラー時の処理
-            //             console.log("Ajaxのエラー:", error);
-            //         }
-            //     })
-                
-
-
                 // 解答結果を取得
                 console.log(data);
                 $.post("ans_questions.php", formData, function(data) {

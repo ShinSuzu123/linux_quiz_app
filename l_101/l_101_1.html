@@ -34,33 +34,34 @@
             $(document).ready(function() {
                 // カテゴリーを指定して問題を取得
                 var category = "コマンド基礎とファイル操作"; // 取得するカテゴリを指定する
-                // $.get("get_questions.php?category=" + category, function(data) {
-                $.get("get_questions.php", {category: category}, function(data) {
-                    //データが正常に取得できた場合の処理
-                    // console.log(data)
-                    
+                $.get("get_questions.php?category=" + category, function(data) {
+                // $.get("get_questions.php", {category: category}, function(data) {
+
                     // データが存在しかつ０より大きい場合取得
                     if (data && data.length > 0) {
                         // 問題データが正常に取得できた場合の処理
-                        var question = data[0];
+                        for (var i = 0; i < data.length; i++) {
+                            var question = data[i];
 
-                        // データが取得できているかコンソール上で確認(のちに消去)
-                        console.log(question);
+                            // データが取得できているかコンソール上で確認(のちに消去)
+                            console.log(question);
 
-                        var questionHTML = '<div class="question">';
-                        // 問題
-                        questionHTML += '<h4>' + question.question_text + '</h4>';
-                        // 選択肢
-                        questionHTML += '<form class="answer-form" action="ans_questions.php" method="post">';
-                        questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
-                        questionHTML += '<input type="radio" name="ans" value="1"> ' + question.option1;
-                        questionHTML += '<input type="radio" name="ans" value="2"> ' + question.option2;
-                        questionHTML += '<input type="radio" name="ans" value="3"> ' + question.option3;
-                        questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
-                        questionHTML += '</input>';
+                            var questionHTML = '<div class="question">';
+                            // 問題
+                            questionHTML += '<h4>' + (i + 1) + '.' + question.question_text + '</h4>';
+                            // 選択肢
+                            questionHTML += '<form class="answer-form" action="ans_questions.php" method="post">';
+                            questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
+                            questionHTML += '<input type="radio" name="ans" value="1"> ' + question.option1;
+                            questionHTML += '<input type="radio" name="ans" value="2"> ' + question.option2;
+                            questionHTML += '<input type="radio" name="ans" value="3"> ' + question.option3;
+                            questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
+                            questionHTML += '</input>';
+                            questionHTML += 
 
-                        // questions-containerに追加
-                        $("#questions-container").append(questionHTML);
+                            // questions-containerに追加
+                            $("#questions-container").append(questionHTML);
+                        }
                     } else {
                         //問題データが取得できなかった場合のエラーハンドリング
                         console.log("問題データが取得でませんでした");
@@ -75,39 +76,33 @@
                     var questionID = $(this).find('input[name="question_id"]').val();
                     var userAnswer = $(this).find('input[name="ans"]:checked').val();
                 
-                    // 解答が空欄の場合エラーメッセージを表示して処理終了
-                    // if (!userAnswer) {
-                    //     $("#error-message").html("解答してください");
-                    //     return;
-                    // }
-
-                    // // エラーメッセージをクリア
-                    // $("#error-message").html("");
-
                     // 解答送信
                     $.post("ans_questions.php", formData, function(data) {
                         $("$result" + questionID).html(data.result);
                         $("#explanation" + questionID).html(data.explanation);
-                    
-                        // // 「完了」ボタンが押された後の処理
-                        // $("#finish-quiz").click(function() {
-                        //     // 「完了」ボタンを非表示にする
-                        //     $("#answer-form").submit();
-
-                        //     // 解答・解説ページに遷移
-                        //     window.location.href = "l_101_1_ans.html";
-                        // });
                     }, 'json');
                 });
 
                 //「完了」ボタンが押された後の処理
                 $("#finish-quiz").click(function() {
-                    //全ての回答フォームを一斉に送信
-                    $(".answer-form").submit();
-                    // 「完了」ボタンを非表示にする
-                    $(this).hide();
-                    // 解答・解説ページに遷移
-                    window.location.href = "l_101_1_ans.html";
+                    // すべての解答が選択されているかチェック
+                    var allAnswers = true;
+
+                    $(".answer-form").each(function() {
+                        // 各問題ごとに解答が選択されているかチェック
+                        if ($(this).find('input[type="radio"]:checked').length === 0) {
+                            allAnswers = false;
+                            return false; // 一つでも未選択の場合は処理終了
+                        }
+                    });
+
+                    if (allAnswers) {
+                        // チェックされている場合は遷移
+                        window.location.href = "l_101_1_ans.html";
+                    } else {
+                        // 選択してない場合アラート出す
+                        alert("解答を選択してください");
+                    }
                 });
             });
         </script>
