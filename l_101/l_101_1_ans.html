@@ -20,22 +20,29 @@
 
     <main>
         <h2>解答・解説</h2>
-        <div id="result-container">
-            <p id="result"></p>
-            <p id="explanation"></p>
-        </div>
+        <div id="explanations-container"></div>
 
         <script>
+            // 解答結果を取得
             $(document).ready(function() {
                 // 解答結果を取得
-                console.log(data);
-                $.post("ans_questions.php", formData, function(data) {
-                // 結果と解説を表示
-                var resultHTML = '<p>結果: ' + result + '</p>';
-                var explanationHTML = '<p>解説:' + explanation + '</p>';
-                $('#result-container').html(resultHTML + explanationHTML);
-                } , 'json');
-            });
+                $.get("ans_questions.php", function(data) {
+                    // 各問題に対する解答と解説を表示
+                    console.log(answer);
+                    for (var i = 0; i < data.length; i++) {
+                        var answer = data[i];
+
+                        var answerHTML = '<div>';
+                        answerHTML += '<h3>問題' + (i + 1) + 'の解答・解説</h3>';
+                        answerHTML += '<p>解答: ' + (answer.inCorrect ? '正解' : '不正解') + '</p>';
+                        answerHTML += '<p>解説: ' + answer.explanation + '</p>';
+                        answerHTML += '</div>';
+
+                        // explanation-containerに追加
+                        $("#explanations-container").append(answerHTML);
+                    }
+                });
+            })
         </script>
 
         <a href="../101_quiz.html">戻る</a>

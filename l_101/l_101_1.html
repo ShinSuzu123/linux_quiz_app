@@ -52,35 +52,33 @@
                             // 選択肢
                             questionHTML += '<form class="answer-form" action="ans_questions.php" method="post">';
                             questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
-                            questionHTML += '<input type="radio" name="ans" value="1"> ' + question.option1;
-                            questionHTML += '<input type="radio" name="ans" value="2"> ' + question.option2;
-                            questionHTML += '<input type="radio" name="ans" value="3"> ' + question.option3;
-                            questionHTML += '<input type="radio" name="ans" value="4"> ' + question.option4;
+                            questionHTML += ' <input type="radio" name="ans" value="1"> ' + question.option1;
+                            questionHTML += ' <input type="radio" name="ans" value="2"> ' + question.option2;
+                            questionHTML += ' <input type="radio" name="ans" value="3"> ' + question.option3;
+                            questionHTML += ' <input type="radio" name="ans" value="4"> ' + question.option4;
                             questionHTML += '</input>';
-                            questionHTML += 
+                            questionHTML += '</form>'
 
                             // questions-containerに追加
                             $("#questions-container").append(questionHTML);
                         }
                     } else {
                         //問題データが取得できなかった場合のエラーハンドリング
-                        console.log("問題データが取得でませんでした");
+                        console.log("問題データが取得でません");
                     }
-                });
 
-                // 解答送信処理
-                $(".answer-form").submit(function(event) {
-                    event.preventDefault();
+                    // 解答送信処理
+                    $('.answer-form').submit(function(event) {
+                        event.preventDefault();
+                        
+                        var formData = $(this).serialize();
 
-                    var formData =$(this).serialize();
-                    var questionID = $(this).find('input[name="question_id"]').val();
-                    var userAnswer = $(this).find('input[name="ans"]:checked').val();
-                
-                    // 解答送信
-                    $.post("ans_questions.php", formData, function(data) {
-                        $("$result" + questionID).html(data.result);
-                        $("#explanation" + questionID).html(data.explanation);
-                    }, 'json');
+                        // 解答送信
+                        $.post("ans_questions.php", formData, function(data) {
+                            // 解答結果が取得できた場合は遷移
+                            window.location.href = "l_101_1_ans.html";
+                        }, 'json');
+                    });
                 });
 
                 //「完了」ボタンが押された後の処理
