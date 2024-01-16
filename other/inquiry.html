@@ -19,6 +19,26 @@
 
     <main>
         <h2>お問い合わせ</h2>
+        <form action="submit_form.php" method="post">
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>入力欄</th>
+                </tr>
+                <tr>
+                    <td>名前</td>
+                    <td><input type="text" name="name" required></td>
+                </tr>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>お問い合わせ内容</td>
+                    <td><textarea name="message" rows="4" required></textarea></td>
+                </tr>
+            </table>
+        </form>
     </main>
 
     <footer class="footer">
