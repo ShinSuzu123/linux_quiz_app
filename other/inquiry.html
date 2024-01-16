@@ -19,7 +19,7 @@
 
     <main>
         <h2>お問い合わせ</h2>
-        <form action="submit_form.php" method="post">
+        <form action="inquiry_form.php" method="post">
             <table>
                 <tr>
                     <th>項目</th>
@@ -34,10 +34,15 @@
                     <td><input type="email" name="email" required></td>
                 </tr>
                 <tr>
+                    <td>電話番号</td>
+                    <td><input type="tel" name="tel" required></td>
+                </tr>
+                <tr>
                     <td>お問い合わせ内容</td>
                     <td><textarea name="message" rows="4" required></textarea></td>
                 </tr>
             </table>
+            <button class="inquiry_submit" type="submit">送信</button>
         </form>
     </main>
 
