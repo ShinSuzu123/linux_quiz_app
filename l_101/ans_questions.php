@@ -13,9 +13,10 @@ $dbname = "lpic_quiz";
 // };
 
 // POSTで情報を受け取っているかの確認
-error_log("Received POST request to ans_questions.php\n", 3, "debug.log");
+// error_log("Received POST request to ans_questions.php\n", 3, "debug.log");
 
 try {
+    // PDOによるDB接続
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -24,20 +25,24 @@ try {
     $questionID = isset($_POST['question_id']) ? $_POST['question_id'] : '';
 
     // 問題の正解をデータベースから取得
-    $stmt = $conn->prepare("SELECT correct_option, explanation FROM questions WHERE id = :question_id");
+    // $stmt = $conn->prepare("SELECT correct_option, explanation FROM questions WHERE id = :question_id");
+    // $stmt = $conn->prepare("SELECT correct_option, explanation FROM questions");
+    
+    // SQL文を確認するために出力
+    $stmt = $conn->prepare($sql);
     $stmt->bindParam(':question_id', $questionID);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     
     // 解答の正誤判定と結果の生成
-    $isCorrect = ($userAnswer === $result['correct_option']);
+    // $isCorrect = ($userAnswer === $result['correct_option']);
 
     // 正解・不正解と解説をJSON形式で返す
-    $response = array(
-        'userAnswer' => $userAnswer,
-        'isCorrect' => $isCorrect,
-        'explanation' => $result['explanation'],
-    );
+    // $response = array(
+    //     'userAnswer' => $userAnswer,
+    //     'isCorrect' => $isCorrect,
+    //     'explanation' => $result['explanation'],
+    // );
 
     // JSON形式でクライエントに返す
     header('Content-Type: application/json');

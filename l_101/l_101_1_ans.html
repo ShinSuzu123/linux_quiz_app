@@ -32,8 +32,8 @@
                     for (var i = 0; i < data.length; i++) {
                         var answer = data[i];
 
-                        var answerHTML = '<div>';
-                        answerHTML += '<h3>問題' + (i + 1) + 'の解答・解説</h3>';
+                        var answerHTML = '<div class="ans_ex">';
+                        answerHTML += '<h3>' + (i + 1) + '. こちらに問題文を出力しておく</h3>';
                         answerHTML += '<p>解答: ' + (answer.inCorrect ? '正解' : '不正解') + '</p>';
                         answerHTML += '<p>解説: ' + answer.explanation + '</p>';
                         answerHTML += '</div>';

@@ -137,9 +137,16 @@ a {
 /*問題ページ*/
 /*問題領域のスタイル*/
 .question {
-    max-width: 600px; /* 問題領域の最大幅を設定*/
-    margin: 0 auto ; /* 中央に寄せる */
-    padding: 20px ; 
+  max-width: 600px; /* 問題領域の最大幅を設定*/
+  margin: 0 auto ; /* 中央に寄せる */
+  padding: 20px ; 
+}
+
+/*解答解説ページ*/
+.ans_ex{
+  max-width: 400px; /* 問題領域の最大幅を設定*/
+  margin: 0 auto ; /* 中央に寄せる */
+  padding: 20px ; 
 }
 
 /* footer */
