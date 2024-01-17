@@ -12,6 +12,7 @@ body {
   padding: 0;
 } /*ページ全体の余白とパディングを無効化*/
 
+/*------------------------------------------------*/
 /* header */
 .header {
   padding: 0px 30px; /*上下左右の余白を設定*/
@@ -48,6 +49,7 @@ body {
   outline: none; /*アウトライン無効*/
 }
 
+/*-------------------------------------------------*/
 /* main */
 /* 章 */
 .quiz_btn {
@@ -132,6 +134,15 @@ a {
   font-size: 16px;
 }
 
+/* お問い合わせフォーム*/
+.inquiry_submit {
+  background-color: black;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+}
+
+/*------------------------------*/
 /* footer */
 .footer {
   background-color: black;
