@@ -28,7 +28,7 @@
                 // 解答結果を取得
                 $.get("ans_questions.php", function(data) {
                     // 各問題に対する解答と解説を表示
-                    console.log(answer);
+                    console.log(data);
                     for (var i = 0; i < data.length; i++) {
                         var answer = data[i];
 
@@ -42,7 +42,7 @@
                         $("#explanations-container").append(answerHTML);
                     }
                 });
-            })
+            });
         </script>
 
         <a href="../101_quiz.html">戻る</a>

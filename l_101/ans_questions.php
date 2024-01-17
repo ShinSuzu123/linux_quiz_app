@@ -13,7 +13,7 @@ $dbname = "lpic_quiz";
 // };
 
 // POSTで情報を受け取っているかの確認
-// error_log("Received POST request to ans_questions.php\n", 3, "debug.log");
+error_log("Received POST request to ans_questions.php\n", 3, "debug.log");
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
@@ -34,6 +34,7 @@ try {
 
     // 正解・不正解と解説をJSON形式で返す
     $response = array(
+        'userAnswer' => $userAnswer,
         'isCorrect' => $isCorrect,
         'explanation' => $result['explanation'],
     );

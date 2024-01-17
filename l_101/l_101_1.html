@@ -72,10 +72,12 @@
                         event.preventDefault();
                         
                         var formData = $(this).serialize();
+                        console.log("FormData:", formData); // 解答データが正しく取得できているか確認
 
                         // 解答送信
                         $.post("ans_questions.php", formData, function(data) {
                             // 解答結果が取得できた場合は遷移
+                            console.log("Response:", data); // サーバーからのレスポンスを確認
                             window.location.href = "l_101_1_ans.html";
                         }, 'json');
                     });
