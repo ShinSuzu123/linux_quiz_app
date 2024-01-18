@@ -59,8 +59,11 @@
 
                             // 解答と解説表示用のコンテナ
                             questionHTML += '<div class="answer" id="answer-container-' + question.id + '" style="display: none;">';
+                            questionHTML += '<p>------------------------------------------------------------------------------</p>';
+                            questionHTML += '<p><strong>結果:</strong></p><p class="result"></p>';
                             questionHTML += '<p><strong>正解:</strong> ' + question.correct_option + '</p>';
                             questionHTML += '<p><strong>解説</strong><br> ' + question.explanation + '</p>';
+                            questionHTML += '<p>------------------------------------------------------------------------------</p>';
                             questionHTML += '</div>';
                             questionHTML += '</div>';
 
