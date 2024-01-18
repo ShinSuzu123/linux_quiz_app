@@ -19,6 +19,92 @@
 
     <main>
         <h2>システムサービスの管理</h2>
+
+        <!-- 問題一覧 -->
+        <div id="questions-container"></div>
+
+        <!-- 完了ボタンと前のページに戻るボタン -->
+        <div id="buttons-container">
+            <button id="finish-quiz">完了！</button>
+            <button id="before_page"><a href="../101_quiz.html">前のページ戻る</a></button>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                // カテゴリーを指定して問題を取得
+                var category = "システムサービスの管理"; // 取得するカテゴリを指定する
+
+                $.get("get_questions.php?category=" + category, function(data) {
+
+                    // データが存在しかつ０より大きい場合取得
+                    if (data && data.length > 0) {
+                        // 問題データが正常に取得できた場合の処理
+                        for (var i = 0; i < data.length; i++) {
+                            var question = data[i];
+
+                            // データが取得できているかコンソール上で確認(のちに消去)
+                            console.log(question);
+
+                            var questionHTML = '<div class="question">';
+                            // 問題
+                            questionHTML += '<h4>' + (i + 1) + '.' + question.question_text + '</h4>';
+                            // 選択肢
+                            questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
+                            questionHTML += '1.<input type="radio" name="ans_' + question.id + '" value="1"> ' + question.option1 + '<br>';
+                            questionHTML += '2.<input type="radio" name="ans_' + question.id + '" value="2"> ' + question.option2 + '<br>';
+                            questionHTML += '3.<input type="radio" name="ans_' + question.id + '" value="3"> ' + question.option3 + '<br>';
+                            questionHTML += '4.<input type="radio" name="ans_' + question.id + '" value="4"> ' + question.option4;
+                            questionHTML += '</input>';
+
+                            // 解答と解説表示用のコンテナ
+                            questionHTML += '<div class="answer" id="answer-container-' + question.id + '" style="display: none;">';
+                            questionHTML += '<p>------------------------------------------------------------------------------</p>';
+                            questionHTML += '<p class="result">結果:</p>';
+                            questionHTML += '<p><strong>正解:</strong> ' + question.correct_option + '</p>';
+                            questionHTML += '<p><strong>解説</strong><br> ' + question.explanation + '</p>';
+                            questionHTML += '<p>------------------------------------------------------------------------------</p>';
+                            questionHTML += '</div>';
+                            questionHTML += '</div>';
+
+                            // questions-containerに追加
+                            $("#questions-container").append(questionHTML);
+                        }
+
+                        // 完了ボタンのクリックイベント
+                        $('#finish-quiz').click(function() {
+                            $(".question").each(function () {
+                                var questionID = $(this).find('input[name="question_id"]').val();
+                                var selectedAnswer = $('input[name="ans_' + questionID + '"]:checked').val();
+                                console.log("Selected Answer:", selectedAnswer); // コンソールログで取得した解答を確認
+                                
+                                // 問題ごとに question オブジェクトを取得する
+                                var question = data.find(q => q.id == questionID);
+                                
+                                // 選択肢とデータベースの解答が一致しているか確認する
+                                var correctAnswer = question.correct_option;
+                                console.log("Correct Answer:", correctAnswer);
+
+                                var answerContainer = $("#answer-container-" + questionID);
+
+                                var resultContainer = answerContainer.find('.result');
+                                if (selectedAnswer === correctAnswer) {
+                                    resultContainer.text('正解');
+                                    resultContainer.css('color', 'green');
+                                } else {
+                                    resultContainer.text('不正解');
+                                    resultContainer.css('color', 'red');
+                                }
+
+                                answerContainer.slideDown();
+                            });
+                        });
+                    } else {
+                        //問題データが取得できなかった場合のエラーハンドリング
+                        console.log("問題データが取得でません");
+                    }
+                });
+            });
+        </script>
     </main>
 
     <footer class="footer">
