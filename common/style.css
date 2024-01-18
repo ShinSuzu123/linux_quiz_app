@@ -13,6 +13,7 @@ body {
   /* overflow-y: auto; 垂直方向のスクロールのみ */
 } /*ページ全体の余白とパディングを無効化*/
 
+/*--------------------------------------------------*/
 /* header */
 .header {
   padding: 0px 30px; /*上下左右の余白を設定*/
@@ -49,6 +50,7 @@ body {
   outline: none; /*アウトライン無効*/
 }
 
+/*--------------------------------------------------*/
 /* main */
 /* 章 */
 .quiz_btn {
@@ -142,11 +144,29 @@ a {
   padding: 20px ; 
 }
 
+/*問題一覧の縦幅*/
 #questions-container {
-  max-height: 560px; /* 任意の高さに設定 */
+  max-height: 580px; /* 任意の高さに設定 */
   overflow-y: auto; /* 縦方向のみスクロール可能 */
 }
 
+/*完了ボタンと戻るボタン*/
+#buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#buttons-container button {
+  background-color: #ccc;
+  color: black;
+  padding: 10px 20px;
+}
+
+#buttons-container button a {
+  color: black;
+}
+
+/*---------------------------------------------------*/
 /* footer */
 .footer {
   background-color: black;
