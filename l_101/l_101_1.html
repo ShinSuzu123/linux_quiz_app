@@ -24,6 +24,8 @@
         <!-- 問題一覧 -->
         <div id="questions-container"></div>
 
+        <!-- <button id="back">戻る</button> -->
+
         <!-- 完了ボタン -->
         <button id="finish-quiz">完了</button>
 
@@ -48,10 +50,10 @@
                             questionHTML += '<h4>' + (i + 1) + '.' + question.question_text + '</h4>';
                             // 選択肢
                             questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
-                            questionHTML += ' <input type="radio" name="ans_' + question.id + '" value="1"> ' + question.option1;
-                            questionHTML += ' <input type="radio" name="ans_' + question.id + '" value="2"> ' + question.option2;
-                            questionHTML += ' <input type="radio" name="ans_' + question.id + '" value="3"> ' + question.option3;
-                            questionHTML += ' <input type="radio" name="ans_' + question.id + '" value="4"> ' + question.option4;
+                            questionHTML += '1.<input type="radio" name="ans_' + question.id + '" value="1"> ' + question.option1 + '<br>';
+                            questionHTML += '2.<input type="radio" name="ans_' + question.id + '" value="2"> ' + question.option2 + '<br>';
+                            questionHTML += '3.<input type="radio" name="ans_' + question.id + '" value="3"> ' + question.option3 + '<br>';
+                            questionHTML += '4.<input type="radio" name="ans_' + question.id + '" value="4"> ' + question.option4;
                             questionHTML += '</input>';
 
                             // 解答と解説表示用のコンテナ
