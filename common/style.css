@@ -10,7 +10,7 @@ a {
 body {
   margin: 0;
   padding: 0;
-  overflow-y: scroll; /* 垂直方向のスクロールのみ */
+  /* overflow-y: auto; 垂直方向のスクロールのみ */
 } /*ページ全体の余白とパディングを無効化*/
 
 /* header */
@@ -55,6 +55,7 @@ body {
   margin-top: 20px; /*上方向に余白設定*/
 }
 
+/*基本的なボタン*/
 table {
   border-collapse: collapse; /*セル間の隙間をなくす*/
   width: 100%; /*テーブル幅を広げる*/
@@ -64,8 +65,6 @@ table {
 button {
   width: 100%;
   padding: 10px;
-  /* margin-left: 10px;
-  margin-right: 10px; */
   background-color: black;
   color: #fff;
   border: none; /*ボーダー無効*/
@@ -141,6 +140,11 @@ a {
   max-width: 600px; /* 問題領域の最大幅を設定*/
   margin: 0 auto ; /* 中央に寄せる */
   padding: 20px ; 
+}
+
+#questions-container {
+  max-height: 560px; /* 任意の高さに設定 */
+  overflow-y: auto; /* 縦方向のみスクロール可能 */
 }
 
 /* footer */

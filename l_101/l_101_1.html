@@ -27,7 +27,9 @@
         <!-- <button id="back">戻る</button> -->
 
         <!-- 完了ボタン -->
-        <button id="finish-quiz">完了</button>
+        <div>
+            <button id="finish-quiz">完了</button>
+        </div>
 
         <script>
             $(document).ready(function() {
@@ -59,7 +61,7 @@
                             // 解答と解説表示用のコンテナ
                             questionHTML += '<div class="answer" id="answer-container-' + question.id + '" style="display: none;">';
                             questionHTML += '<p><strong>正解:</strong> ' + question.correct_option + '</p>';
-                            questionHTML += '<p><strong>解説:</strong><br> ' + question.explanation + '</p>';
+                            questionHTML += '<p><strong>解説</strong><br> ' + question.explanation + '</p>';
                             questionHTML += '</div>';
                             questionHTML += '</div>';
 
