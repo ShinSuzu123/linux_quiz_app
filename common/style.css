@@ -136,6 +136,10 @@ a {
 
 /*問題ページ*/
 /*問題領域のスタイル*/
+.return a {
+  color: black;
+}
+
 .question {
   max-width: 600px; /* 問題領域の最大幅を設定*/
   margin: 0 auto ; /* 中央に寄せる */

@@ -27,15 +27,12 @@
         <!-- 完了ボタン -->
         <button id="finish-quiz">完了</button>
 
-        <!-- エラーメッセージ -->
-        <!-- <div id="error-message"></div> -->
-
         <script>
             $(document).ready(function() {
                 // カテゴリーを指定して問題を取得
                 var category = "コマンド基礎とファイル操作"; // 取得するカテゴリを指定する
+
                 $.get("get_questions.php?category=" + category, function(data) {
-                // $.get("get_questions.php", {category: category}, function(data) {
 
                     // データが存在しかつ０より大きい場合取得
                     if (data && data.length > 0) {
@@ -50,58 +47,55 @@
                             // 問題
                             questionHTML += '<h4>' + (i + 1) + '.' + question.question_text + '</h4>';
                             // 選択肢
-                            questionHTML += '<form class="answer-form" action="ans_questions.php" method="post">';
                             questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
-                            questionHTML += ' <input type="radio" name="ans" value="1"> ' + question.option1;
-                            questionHTML += ' <input type="radio" name="ans" value="2"> ' + question.option2;
-                            questionHTML += ' <input type="radio" name="ans" value="3"> ' + question.option3;
-                            questionHTML += ' <input type="radio" name="ans" value="4"> ' + question.option4;
+                            questionHTML += ' <input type="radio" name="ans_' + question.id + '" value="1"> ' + question.option1;
+                            questionHTML += ' <input type="radio" name="ans_' + question.id + '" value="2"> ' + question.option2;
+                            questionHTML += ' <input type="radio" name="ans_' + question.id + '" value="3"> ' + question.option3;
+                            questionHTML += ' <input type="radio" name="ans_' + question.id + '" value="4"> ' + question.option4;
                             questionHTML += '</input>';
-                            questionHTML += '</form>'
+
+                            // 解答と解説表示用のコンテナ
+                            questionHTML += '<div class="answer" id="answer-container-' + question.id + '" style="display: none;">';
+                            questionHTML += '<p>正解: ' + question.correct_option + '</p>';
+                            questionHTML += '<p>解説: ' + question.explanation + '</p>';
+                            questionHTML += '</div>';
+                            questionHTML += '</div>';
 
                             // questions-containerに追加
                             $("#questions-container").append(questionHTML);
                         }
+
+                        // 完了ボタンのクリックイベント
+                        $('#finish-quiz').click(function() {
+                            //全ての解答が選択されているかチェック
+                            var allAnswers = true;
+
+                            $(".question").each(function () {
+                                // 各問題ごとに解答が選択されているか確認
+                                var questionID = $(this).find('input[name="question_id"]').val();
+                                if ($('input[name="ans_' + questionID + '"]:checked').length === 0) {
+                                    allAnswers = false;
+                                    return false; // 一つでも未選択の場合は処理終了する
+                                }
+                            });
+
+                            if (allAnswers) {
+                                // チェックされている場合は解答と解説を表示
+                                $(".question").each(function () {
+                                    var questionID = $(this).find('input[name="question_id"]').val();
+                                    var selectedAnswer = $('input[name="ans_' + questionID +'"][value="' + question.correct_option + '"]').parent().text().trim();
+                                    var answerContainer = $("#answer-container-" + questionID);
+                                    answerContainer.find('.answer-text-').text(selectedAnswer);
+                                    answerContainer.slideDown();
+                                });
+                            } else {
+                                // 選択してない場合アラートを出す
+                                alert("解答を選択してください");
+                            }
+                        });
                     } else {
                         //問題データが取得できなかった場合のエラーハンドリング
                         console.log("問題データが取得でません");
-                    }
-
-                    // 解答送信処理
-                    $('.answer-form').submit(function(event) {
-                        event.preventDefault();
-                        
-                        var formData = $(this).serialize();
-                        console.log("FormData:", formData); // 解答データが正しく取得できているか確認
-
-                        // 解答送信
-                        $.post("ans_questions.php", formData, function(data) {
-                            // 解答結果が取得できた場合は遷移
-                            console.log("Response:", data); // サーバーからのレスポンスを確認
-                            window.location.href = "l_101_1_ans.html";
-                        }, 'json');
-                    });
-                });
-
-                //「完了」ボタンが押された後の処理
-                $("#finish-quiz").click(function() {
-                    // すべての解答が選択されているかチェック
-                    var allAnswers = true;
-
-                    $(".answer-form").each(function() {
-                        // 各問題ごとに解答が選択されているかチェック
-                        if ($(this).find('input[type="radio"]:checked').length === 0) {
-                            allAnswers = false;
-                            return false; // 一つでも未選択の場合は処理終了
-                        }
-                    });
-
-                    if (allAnswers) {
-                        // チェックされている場合は遷移
-                        window.location.href = "l_101_1_ans.html";
-                    } else {
-                        // 選択してない場合アラート出す
-                        alert("解答を選択してください");
                     }
                 });
             });
