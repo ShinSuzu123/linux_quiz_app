@@ -76,14 +76,15 @@
                             $(".question").each(function () {
                                 var questionID = $(this).find('input[name="question_id"]').val();
                                 var selectedAnswer = $('input[name="ans_' + questionID + '"]:checked').val();
-                                console.log("Selected Answer:", selectedAnswer); // コンソールログで取得した解答を確認
+                                // console.log("Question ID:", questionID);
+                                // console.log("Selected Answer:", selectedAnswer); // コンソールログで取得した解答を確認
                                 
                                 // 問題ごとに question オブジェクトを取得する
                                 var question = data.find(q => q.id == questionID);
                                 
                                 // 選択肢とデータベースの解答が一致しているか確認する
                                 var correctAnswer = question.correct_option;
-                                console.log("Correct Answer:", correctAnswer);
+                                // console.log("Correct Answer:", correctAnswer);
 
                                 var answerContainer = $("#answer-container-" + questionID);
 
