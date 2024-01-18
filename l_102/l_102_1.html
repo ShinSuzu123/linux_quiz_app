@@ -26,13 +26,13 @@
         <!-- 完了ボタンと前のページに戻るボタン -->
         <div id="buttons-container">
             <button id="finish-quiz">完了！</button>
-            <button id="before_page"><a href="../101_quiz.html">前のページ戻る</a></button>
+            <button id="before_page"><a href="../102_quiz.html">前のページ戻る</a></button>
         </div>
 
         <script>
             $(document).ready(function() {
                 // カテゴリーを指定して問題を取得
-                var category = "コマンド基礎とファイル操作"; // 取得するカテゴリを指定する
+                var category = "シェル、スクリプト"; // 取得するカテゴリを指定する
 
                 $.get("get_questions.php?category=" + category, function(data) {
 
