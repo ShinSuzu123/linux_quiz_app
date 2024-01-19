@@ -74,21 +74,20 @@
                         $('#finish-quiz').click(function() {
                             $(".question").each(function () {
                                 var questionID = $(this).find('input[name="question_id"]').val(); // 隠してあるフィールドから探してその値を取得しquestionIDに格納している
-                                var selectedAnswer = $('input[name="ans_' + questionID + '"]:checked').val(); 
+                                var selectedAnswer = $('input[name="ans_' + questionID + '"]:checked').val(); // チェックされている要素だけを取得する
                                 
-                                // log1
-                                // console.log("Question ID:", questionID); // id自体が正確なのか確認
-                                // console.log("Selected Answer:", selectedAnswer); // コンソールログで取得した解答を確認
+                                   // log1
+                                   // console.log("Question ID:", questionID); // id自体が正確なのか確認
+                                   // console.log("Selected Answer:", selectedAnswer); // コンソールログで取得した解答を確認
                                 
                                 // 問題ごとに question オブジェクトを取得
                                 var question = data.find(q => q.id == questionID);
-                                
-                                // 選択肢とデータベースの解答が一致しているか確認
-                                var correctAnswer = question.correct_option;
-                                // log2
-                                // console.log("Correct Answer:", correctAnswer); // データベース上の解答が正確にとってこれているかの確認
 
                                 // 正誤判定の処理
+                                // 選択肢とデータベースの解答が一致しているか確認
+                                var correctAnswer = question.correct_option;
+                                   // log2
+                                   // console.log("Correct Answer:", correctAnswer); // データベース上の解答が正確にとってこれているかの確認
                                 var answerContainer = $("#answer-container-" + questionID); // 対応する問題の解答と解説を表示するためのコンテナを取得する
                                 var resultContainer = answerContainer.find('.result'); // .result要素を探し取得する
                                 if (selectedAnswer === correctAnswer) { // データベースにある解答と選択した解答が合っているかどうか
