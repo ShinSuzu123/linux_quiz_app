@@ -9,17 +9,37 @@
 <body>
     <header class="header">
         <h1 class="quiz-logo"><a href="../101_quiz.html">LPIC lv.1 アタック!</a></h1>
-        <!-- <nav class="nav">
-            <ul class="list">
-                <li class="item"><a href="mypage.html">マイページ</a></li>
-                <li class="item"><a href="certification/login.html">ログイン</a></li>
-            </ul>
-        </nav> -->
     </header>
 
     <main>
         <h2>ログイン</h2>
-        <p><a href="signin.html">新規登録ページ</a></p>
+
+        <!-- <form id="login-form"> -->
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>入力欄</th>
+                </tr>
+                <tr>
+                    <td>ユーザー名</td>
+                    <td><input type="text" name="username" required></td>
+                </tr>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>パスワード</td>
+                    <td><input type="password" name="password" required></td>
+                </tr>
+            </table>
+        <!-- </form> -->
+
+        <div id="buttons-container">
+            <button id="signin">送信</button>
+            <button id="login"><a href="#">管理者ログインはこちら</a></button>
+            <button id="signin"><a href="../certification/signin.html">新規登録ページに戻る</a></button>
+        </div>
     </main>
 
     <footer class="footer">
