@@ -34,18 +34,10 @@
             $(document).ready(function() {
                 // カテゴリーを指定して問題を取得
                 var category = "コマンド基礎とファイル操作"; // 取得するカテゴリを指定する
-                        
-                function shuffle(array) {
-                    return array.sort(function() {
-                    return Math.random() - 0.5;
-                    });
-                };
 
-                $.get("get_questions.php?category=" + category, function(data) {
+                $.get("get_random_questions.php?category=" + category, function(data) {
                     // データが存在しかつ０より大きい場合取得
                     if (data && data.length > 0) {
-                        // データが取れた場合シャッフル
-                        data = shuffle(data);
                         // 問題データが正常に取得できた場合の処理
                         for (var i = 0; i < data.length; i++) {
                             var question = data[i];
