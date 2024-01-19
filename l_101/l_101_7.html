@@ -18,7 +18,96 @@
     </header>
 
     <main>
-        <h1>システムアーキテクチャ</h1>
+        <h2>システムアーキテクチャ</h2>
+
+        <!-- 問題一覧 -->
+        <div id="questions-container"></div>
+
+        <!-- 完了ボタンと前のページに戻るボタン -->
+        <div id="buttons-container">
+            <button id="finish-quiz">完了！</button>
+            <button id="before_page"><a href="../101_quiz.html">前のページ戻る</a></button>
+        </div>
+
+        <script>
+            $(document).ready(function() {
+                // カテゴリーを指定して問題を取得
+                var category = "システムアーキテクチャ"; // 取得するカテゴリを指定する
+
+                $.get("get_questions.php?category=" + category, function(data) {
+
+                    // データが存在しかつ０より大きい場合取得
+                    if (data && data.length > 0) {
+                        // 問題データが正常に取得できた場合の処理
+                        for (var i = 0; i < data.length; i++) {
+                            var question = data[i];
+
+                            // データが取得できているかコンソール上で確認(のちに消去)
+                            // console.log(question);
+
+                            var questionHTML = '<div class="question">'; // 各問題の情報を表示するためのHTML
+                            // 問題
+                            questionHTML += '<h4>' + (i + 1) + '.' + question.question_text + '</h4>';
+                            // 選択肢
+                            questionHTML += '<input type="hidden" name="question_id" value="' + question.id + '">';
+                            questionHTML += '1.<input type="radio" name="ans_' + question.id + '" value="1"> ' + question.option1 + '<br>';
+                            questionHTML += '2.<input type="radio" name="ans_' + question.id + '" value="2"> ' + question.option2 + '<br>';
+                            questionHTML += '3.<input type="radio" name="ans_' + question.id + '" value="3"> ' + question.option3 + '<br>';
+                            questionHTML += '4.<input type="radio" name="ans_' + question.id + '" value="4"> ' + question.option4;
+                            questionHTML += '</input>';
+                            // 解答と解説
+                            questionHTML += '<div class="answer" id="answer-container-' + question.id + '" style="display: none;">'; // 初期状態は非表示にする
+                            questionHTML += '<p>------------------------------------------------------------------------------</p>';
+                            questionHTML += '<strong><p class="result"></p></strong>';
+                            questionHTML += '<p><strong>解説:</strong><br> ' + question.explanation + '</p>';
+                            questionHTML += '<p><strong>正解:</strong> ' + question.correct_option + '</p>';
+                            questionHTML += '<p>------------------------------------------------------------------------------</p>';
+                            questionHTML += '</div>';
+                            questionHTML += '</div>';
+
+                            // questions-containerに追加
+                            $("#questions-container").append(questionHTML);
+                        }
+
+                        // 完了ボタンのクリックイベント
+                        $('#finish-quiz').click(function() {
+                            $(".question").each(function () {
+                                var questionID = $(this).find('input[name="question_id"]').val(); // 隠してあるフィールドから探してその値を取得しquestionIDに格納している
+                                var selectedAnswer = $('input[name="ans_' + questionID + '"]:checked').val(); // チェックされている要素だけを取得する
+                                
+                                   // log1
+                                   // console.log("Question ID:", questionID); // id自体が正確なのか確認
+                                   // console.log("Selected Answer:", selectedAnswer); // コンソールログで取得した解答を確認
+                                
+                                // 問題ごとに question オブジェクトを取得
+                                var question = data.find(q => q.id == questionID);
+
+                                // 正誤判定の処理
+                                // 選択肢とデータベースの解答が一致しているか確認
+                                var correctAnswer = question.correct_option;
+                                   // log2
+                                   // console.log("Correct Answer:", correctAnswer); // データベース上の解答が正確にとってこれているかの確認
+                                var answerContainer = $("#answer-container-" + questionID); // 対応する問題の解答と解説を表示するためのコンテナを取得する
+                                var resultContainer = answerContainer.find('.result'); // .result要素を探し取得する
+                                if (selectedAnswer === correctAnswer) { // データベースにある解答と選択した解答が合っているかどうか
+                                    resultContainer.text('正解');
+                                    resultContainer.css('color', 'green'); // 正解の場合は緑色
+                                } else {
+                                    resultContainer.text('不正解');
+                                    resultContainer.css('color', 'red'); // 不正解の場合は赤色
+                                }
+
+                                // 下からスライドで表示
+                                answerContainer.slideDown();
+                            });
+                        });
+                    } else {
+                        //問題データが取得できなかった場合のエラーハンドリング
+                        console.log("問題データが取得でません");
+                    }
+                });
+            });
+        </script>
     </main>
 
     <footer class="footer">

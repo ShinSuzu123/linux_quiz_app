@@ -5,6 +5,7 @@
     <title>LPIC lv.1 アタック!</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href="../common/style.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -18,7 +19,7 @@
     </header>
 
     <main>
-        <h2>X Window System</h2>
+        <h2>コマンド基礎とファイル操作</h2>
 
         <!-- 問題一覧 -->
         <div id="questions-container"></div>
@@ -26,13 +27,13 @@
         <!-- 完了ボタンと前のページに戻るボタン -->
         <div id="buttons-container">
             <button id="finish-quiz">完了！</button>
-            <button id="before_page"><a href="../102_quiz.html">前のページ戻る</a></button>
+            <button id="before_page"><a href="../101_quiz.html">前のページ戻る</a></button>
         </div>
 
         <script>
             $(document).ready(function() {
                 // カテゴリーを指定して問題を取得
-                var category = "X Window System"; // 取得するカテゴリを指定する
+                var category = "コマンド基礎とファイル操作"; // 取得するカテゴリを指定する
 
                 $.get("get_questions.php?category=" + category, function(data) {
 

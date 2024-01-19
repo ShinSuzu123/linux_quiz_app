@@ -5,7 +5,6 @@
     <title>LPIC lv.1 アタック!</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href="../common/style.css" rel="stylesheet" type="text/css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -20,57 +19,6 @@
 
     <main>
         <h2>お問い合わせ</h2>
-        <form action="inquiry_form.php" method="post">
-            <table>
-                <tr>
-                    <th>項目</th>
-                    <th>入力欄</th>
-                </tr>
-                <tr>
-                    <td>名前</td>
-                    <td><input type="text" name="name" required></td>
-                </tr>
-                <tr>
-                    <td>メールアドレス</td>
-                    <td><input type="email" name="email" required></td>
-                </tr>
-                <tr>
-                    <td>電話番号</td>
-                    <td><input type="tel" name="tel" required></td>
-                </tr>
-                <tr>
-                    <td>お問い合わせ内容</td>
-                    <td><textarea name="message" rows="4" required></textarea></td>
-                </tr>
-            </table>
-            <button class="inquiry_submit" type="submit">送信</button>
-        </form>
-        
-        <!-- <script>
-            $(document).ready(function() {
-                // フォームが送信されてた時の処理
-                $("#inquiryForm").submit(function(event) {
-                    event.preventDefault(); // フォームの通常の送信を防ぐ
-                    
-                    // フォームデータを非同期で送信
-                    $ajax({
-                        type: "POST",
-                        url: "inquiry_form.php",
-                        data: $(this).serialize(),
-                        success: function(response) {
-                            // お問い合わせが正常に送信された場合
-                            $("#messageArea").html("<p>お問い合わせが正常に送信されました！</p>");
-
-                            // フォームを空にする
-                            $("#inquiryForm")[0].reset();
-                        },
-                        error: function(error) {
-                            console.error("エラー:", error);
-                        }
-                    });
-                });
-            });
-        </script> -->
     </main>
 
     <footer class="footer">
