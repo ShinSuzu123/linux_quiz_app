@@ -14,7 +14,7 @@
     <main>
         <h2>新規登録</h2>
 
-        <form id="signin-form">
+        <form action="signin_form.php" method="post">
             <table>
                 <tr>
                     <th>項目</th>
@@ -22,7 +22,7 @@
                 </tr>
                 <tr>
                     <td>ユーザー名</td>
-                    <td><input type="text" name="username" required></td>
+                    <td><input type="text" name="name" required></td>
                 </tr>
                 <tr>
                     <td>電話番号</td>
@@ -42,15 +42,14 @@
                 </tr>
                 <tr>
                     <td>住所</td>
-                    <td><input type="age" name="age" required></td>
+                    <td><input type="address" name="address" required></td>
                 </tr>
             </table>
+            <div id="buttons-container">
+                <button class="signin_submit" type="submit">送信</button>
+                <button id="login"><a href="../certification/login.html">アカウントお持ちの方はこちら >></a></button>
+            </div>
         </form>
-
-        <div id="buttons-container">
-            <button id="signin">登録!</button>
-            <button id="login"><a href="../certification/login.html">アカウントお持ちの方はこちら >></a></button>
-        </div>
     </main>
 
     <footer class="footer">
