@@ -15,6 +15,6 @@ session_destroy();
 
 // ログアウト後のリダイレクト先
 header("Location: signin.html");
-exit;
+exit; // 処理を終了する
 
 ?>

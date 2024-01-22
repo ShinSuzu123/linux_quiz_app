@@ -2,11 +2,11 @@
 // DB接続情報
 $host = "localhost";
 $username = "testuser";
-$dbpassword = "testpass";
+$password = "testpass";
 $dbname = "lpic_quiz";
 
 // DBへの接続設定
-$conn = new mysqli($host, $username, $dbpassword, $dbname);
+$conn = new mysqli($host, $username, $password, $dbname);
 
 // 接続確認
 if ($conn->connect_error) {
@@ -18,11 +18,11 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // パスワードのハッシュ化
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+// $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
 // SQLのクエリの作成と実行
 // SQlインジェクション対策のためにプロペアードステートメントを使用
-$sql = "SELECT * FROM users WHERE email= ? Limit 1";
+$sql = "SELECT id , email, password FROM users WHERE email = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $email);
 $stmt->execute();
