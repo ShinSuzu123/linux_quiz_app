@@ -21,7 +21,7 @@ $password = $_POST['password'];
 $age = $_POST['age'];
 $address = $_POST['address'];
 
-// SQLのクエリの作成と実行
+// SQLのクエリの作成と実行(プロペアードステートメントを使用)
 $sql = "INSERT INTO users (name, email, tel, password, age, address) VALUES ('$name', '$email', '$tel', '$password', '$age', '$address')";
 
 if ($conn->query($sql) === TRUE) {
