@@ -10,7 +10,7 @@ $conn = new mysqli($host, $username, $dbpassword, $dbname);
 
 // 接続確認
 if ($conn->connect_error) {
-    die("データベースへの接続失敗しました:" . $conn->connect_error);
+    die("データベースへの接続失敗しました:" . $conn->connect_error); // 接続エラーがあればエラーメッセージを出力して処理を中断
 }
 
 // フォームからのデータを受け取る
@@ -21,7 +21,8 @@ $password = $_POST['password'];
 $age = $_POST['age'];
 $address = $_POST['address'];
 
-// SQLのクエリの作成と実行(プロペアードステートメントを使用)
+// SQLのクエリの作成と実行
+// usersテーブルに登録情報を挿入
 $sql = "INSERT INTO users (name, email, tel, password, age, address) VALUES ('$name', '$email', '$tel', '$password', '$age', '$address')";
 
 if ($conn->query($sql) === TRUE) {
