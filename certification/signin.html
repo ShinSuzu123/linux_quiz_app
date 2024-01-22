@@ -8,22 +8,54 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="quiz-logo"><a href="../101_quiz.html">LPIC lv.1 アタック!</a></h1>
-        <nav class="nav">
-            <ul class="list">
-                <li class="item"><a href="certification/login.html">ログイン</a></li>
-            </ul>
-        </nav>
+        <h1 class="quiz-logo">LPIC lv.1 アタック!</h1>
     </header>
 
     <main>
-        <h2>新規登録ページ</h2>
+        <h2>新規登録</h2>
+
+        <form action="signin_form.php" method="post">
+            <table>
+                <tr>
+                    <th>項目</th>
+                    <th>入力欄</th>
+                </tr>
+                <tr>
+                    <td>ユーザー名</td>
+                    <td><input type="text" name="name" required></td>
+                </tr>
+                <tr>
+                    <td>電話番号</td>
+                    <td><input type="text" name="tel" required></td>
+                </tr>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td>パスワード</td>
+                    <td><input type="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td>年齢</td>
+                    <td><input type="age" name="age" required></td>
+                </tr>
+                <tr>
+                    <td>住所</td>
+                    <td><input type="address" name="address" required></td>
+                </tr>
+            </table>
+            <div id="buttons-container">
+                <button class="signin_submit" type="submit">送信</button>
+                <button id="login"><a href="../certification/login.html">アカウントお持ちの方はこちら >></a></button>
+            </div>
+        </form>
     </main>
 
     <footer class="footer">
         <ul class="menu">
-            <li><a href="about.html">このサイトについて</a></li>
-            <li><a href="inquiry.html">お問い合わせ</a></li>
+            <li><a href="../other/about.html">このサイトについて</a></li>
+            <li><a href="../other/inquiry.html">お問い合わせ</a></li>
         </ul>
     </footer>
 </body>

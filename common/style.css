@@ -166,6 +166,11 @@ a {
   color: black;
 }
 
+
+/* 新規登録ページ */
+
+
+
 /* お問い合わせフォーム*/
 .inquiry_submit {
   background-color: black;
@@ -173,7 +178,6 @@ a {
       padding: 10px 15px;
       border: none;
 }
-
 
 /*---------------------------------------------------*/
 /* footer */
