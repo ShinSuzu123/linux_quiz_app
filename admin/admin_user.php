@@ -21,13 +21,32 @@
         <div class="quiz_btn">
             <table>
                 <tr>
-                    <td class="list_btn"><button onclick="location.href='admin_quiz.html'">問題管理</button></td>
-                    <td class="list_btn"><button onclick="location.href='admin_user.html'">User管理</button></td>
+                    <td class="list_btn"><button><a href="admin_quiz.php">問題 管理</a></button></td>
+                    <td class="list_btn"><button><a href="admin_user.php">User 管理</a></button></td>
                 </tr>
             </table>
         </div>
 
-        <h2>User管理</h2>
+        <h2>User 管理</h2>
+        <!-- User一覧 -->
+        <div>
+            <button>Userを登録</button>
+        </div>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>名前</th>
+                <th>電話番号</th>
+                <th>Eメール</th>
+                <th>パスワード</th>
+                <th>年齢</th>
+                <th>住所</th>
+                <th>編集</th>
+                <th>削除</th>
+            </tr>
+            <?php include 'display_user.php'; ?>
+        </table>
 
     </main>
 

@@ -180,6 +180,14 @@ a {
 }
 
 /*---------------------------------------------------*/
+/* admin */
+.delete-link {
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/*---------------------------------------------------*/
 /* footer */
 .footer {
   background-color: black;

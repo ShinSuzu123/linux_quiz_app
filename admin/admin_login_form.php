@@ -24,7 +24,7 @@ $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // ログイン成功、ページリダイレクト
-        header("Location: admin_quiz.html");
+        header("Location: admin_quiz.php");
 } else {
     // パスワードが一致しない場合
     echo "ログインに失敗しました。";
