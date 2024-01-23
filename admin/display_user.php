@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["password"] . "</td>";
         echo "<td>" . $row["age"] . "</td>";
         echo "<td>" . $row["address"] . "</td>";
-        echo "<td><a href='edit_quiz.php?id=" . $row["id"] . "'>編集</a></td>";
+        echo "<td><a href='edit_form.php?id=" . $row["id"] . "'>編集</a></td>";
         echo "<td><a href='delete_question.php?id=" . $row["id"] . "' onclick='return confirm(\"本当に削除しますか？\");' class='btn-delete'>削除</a></td>";
         echo "</tr>";
     }

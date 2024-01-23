@@ -25,7 +25,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["correct_option"] . "</td>";
         echo "<td>" . $row["explanation"] . "</td>";
         echo "<td>" . $row["category"] . "</td>";
-        echo "<td><a href='edit_quiz.php?id=" . $row["id"] . "'>編集</a></td>";
+        echo "<td><a href='edit_form.php?id=" . $row["id"] . "' class='edit-link'>編集</a></td>";
         echo "<td><a href='delete_questions.php?id=" . $row["id"] . "' class='delete-link'>削除</a></td>";
         echo "</tr>";
     }

@@ -174,15 +174,21 @@ a {
 /* お問い合わせフォーム*/
 .inquiry_submit {
   background-color: black;
-      color: white;
-      padding: 10px 15px;
-      border: none;
+  color: white;
+  padding: 10px 15px;
+  border: none;
 }
 
 /*---------------------------------------------------*/
 /* admin */
 .delete-link {
   color: red;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.edit-link {
+  color: blue;
   font-weight: bold;
   text-decoration: none;
 }

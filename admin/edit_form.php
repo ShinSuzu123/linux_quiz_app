@@ -1,3 +1,4 @@
+<!-- 編集フォーム -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -18,39 +19,40 @@
 
     <main>
         <h2>編集</h2>
-        <form action="update_question.php" method="post">
+        <?php if (isset($row)): ?>
+        <form action="update_questions.php" method="post">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
             <table>
                 <tr>
-                    <td><label for="question_text">問題テキスト</label></td>
+                    <td><strong><label for="question_text">問題テキスト</label></strong></td>
                     <td><input type="text" name="question_text" id="question_text" value="<?php echo htmlspecialchars($row['question_text']); ?>"></td>
                 </tr>
                 <tr>
-                    <td><label for="question_text">選択肢1:</label></td>
+                    <td><strong><label for="question_text">選択肢1</label></strong></td>
                     <td><input type="text" name="option1" id="option1" value="<?php echo htmlspecialchars($row['option1']); ?>"></td>
                 </tr>
                 <tr>
-                    <td><label for="question_text">選択肢2:</label></td>
+                    <td><strong><label for="question_text">選択肢2</label></strong></td>
                     <td><input type="text" name="option2" id="option2" value="<?php echo htmlspecialchars($row['option2']); ?>"></td>
                 </tr>
                 <tr>
-                    <td><label for="question_text">選択肢3:</label></td>
+                    <td><strong><label for="question_text">選択肢3</label></strong></td>
                     <td><input type="text" name="option3" id="option3" value="<?php echo htmlspecialchars($row['option3']); ?>"></td>
                 </tr>
                 <tr>
-                    <td><label for="question_text">選択肢4:</label></td>
+                    <td><strong><label for="question_text">選択肢4</label></strong></td>
                     <td><input type="text" name="option4" id="option4" value="<?php echo htmlspecialchars($row['option4']); ?>"></td>
                 </tr>
                 <tr>
-                    <td><label for="correct_option">正解:</label></td>
+                    <td><strong><label for="correct_option">正解</label></strong></td>
                     <td><input type="text" name="correct_option" id="correct_option" value="<?php echo htmlspecialchars($row['correct_option']); ?>"></td>
                 </tr>
                 <tr>
-                    <td><label for="explanation">解説:</label></td>
+                    <td><strong><label for="explanation">解説</label></strong></td>
                     <td><textarea type="text" name="explanation" id="explanation"><?php echo htmlspecialchars($row['explanation']); ?></textarea></td>
                 </tr>
                 <tr>
-                    <td><label for="category">カテゴリ:</label></td>
+                    <td><strong><label for="category">カテゴリ</label></strong></td>
                     <td><input type="text" name="category" id="category" value="<?php echo htmlspecialchars($row['category']); ?>"></td>
                 </tr>
                 <tr>
@@ -60,9 +62,11 @@
                 </tr>
             </table>
         </form>
+        <?php endif; ?> 
     </main>
 
     <footer class="footer">
+        <button><strong><a href="admin_quiz.php">戻る</a><strong></button>
     </footer>
 </body>
 </html>
