@@ -1,3 +1,8 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
+
 <!-- 編集フォーム -->
 <!DOCTYPE html>
 <html lang="ja">
@@ -19,13 +24,12 @@
 
     <main>
         <h2>問題 編集</h2>
-        <?php if (isset($row)): ?>
         <form action="update_questions.php" method="post">
-            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">
+            <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']);?>">
             <table>
                 <tr>
                     <td><strong><label for="question_text">問題テキスト</label></strong></td>
-                    <td><input type="text" name="question_text" id="question_text" value="<?php echo htmlspecialchars($row['question_text']); ?>"></td>
+                    <td><input type="text" name="question_text" id="question_text" value="<?php echo htmlspecialchars($row['question_text']);  ?>"></td>
                 </tr>
                 <tr>
                     <td><strong><label for="question_text">選択肢1</label></strong></td>
@@ -62,7 +66,6 @@
                 </tr>
             </table>
         </form>
-        <?php endif; ?> 
     </main>
 
     <footer class="footer">
