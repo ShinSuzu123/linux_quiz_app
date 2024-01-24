@@ -27,6 +27,4 @@ if ($row) {
     echo "問題が見つかりません。";
 }
 
-// $rowを使用してフォームを表示
-include('edit_form.php');
 ?>

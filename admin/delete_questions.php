@@ -1,5 +1,6 @@
 <!-- 問題削除処理 -->
 <?php
+// データベースの接続
 $host = "localhost";
 $username = "testuser";
 $password = "testpass";
@@ -11,23 +12,26 @@ if ($conn->connect_error) {
     die("接続失敗:" . $conn->connect_error);
 }
 
-$id = $_GET['id'];
+// 問題の削除
+$id = $_GET['id']; // 特定の問題をデータベースから削除する
 
 $sql = "DELETE FROM questions WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $id);
+$stmt = $conn->prepare($sql); // SQlインジェクション対策
+$stmt->bind_param("i", $id); // IDをSQLクエリにバインド
 $stmt->execute();
 
-if ($stmt->affected_rows > 0) {
+// 削除が結果の確認
+if ($stmt->affected_rows > 0) { // affected_rowsは削除された行の数を返す
     echo "問題が削除されました";
 } else {
     echo "削除に失敗しました";
 }
 
+// ステートメントとデータ接続を閉じる
 $stmt->close();
 $conn->close();
 
-header("Location: admin_quiz.php");
+header("Location: admin_quiz.php"); // 前のページにリダイレクト
 exit;
 
 ?>

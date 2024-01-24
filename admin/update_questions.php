@@ -28,7 +28,7 @@ $stmt->bind_param("ssssssssi", $question_text, $option1, $option2, $option3, $op
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {
-    echo "問題が更新されました";
+    echo "<script>alert('問題が更新されました'); window.location.href='admin_quiz.php';</script>";
 } else {
     echo "更新に失敗しました";
 }
