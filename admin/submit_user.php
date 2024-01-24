@@ -23,7 +23,7 @@ $address = $_POST['address'];
 // データベースに登録
 $sql = "INSERT INTO users (name, tel, email, password, age, address) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssssi", $name, $tel, $email, $password, $age, $address);
+$stmt->bind_param("ssssss", $name, $tel, $email, $password, $age, $address);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {
