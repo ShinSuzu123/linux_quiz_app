@@ -31,7 +31,7 @@
         <h2>User 管理</h2>
         <!-- User一覧 -->
         <div>
-            <button>Userを登録</button>
+            <button><a href='register_user_form.php'>Userを登録</a></button>
         </div>
 
         <table>
