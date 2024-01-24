@@ -18,7 +18,7 @@
     </header>
 
     <main>
-        <h2>編集</h2>
+        <h2>問題 編集</h2>
         <?php if (isset($row)): ?>
         <form action="update_questions.php" method="post">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>">

@@ -30,7 +30,7 @@
         <h2>問題 管理</h2>
         <!-- 問題を一覧として出す -->
         <div>
-            <button>問題を登録</button>
+            <button><a href='register_question_form.php'>問題を登録</a></button>
         </div>
         
         <table>
