@@ -1,3 +1,4 @@
+<!-- Userを一覧に出す処理 -->
 <?php
 $host = "localhost";
 $username = "testuser";

@@ -1,3 +1,4 @@
+<!-- 問題を一覧に出す処理 -->
 <?php
 $host = "localhost";
 $username = "testuser";

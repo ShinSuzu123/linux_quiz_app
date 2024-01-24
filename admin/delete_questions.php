@@ -1,3 +1,4 @@
+<!-- 削除処理 -->
 <?php
 $host = "localhost";
 $username = "testuser";
