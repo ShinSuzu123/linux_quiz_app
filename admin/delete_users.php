@@ -1,4 +1,4 @@
-<!-- 問題削除処理 -->
+<!-- ユーザー削除処理 -->
 <?php
 $host = "localhost";
 $username = "testuser";
@@ -13,13 +13,13 @@ if ($conn->connect_error) {
 
 $id = $_GET['id'];
 
-$sql = "DELETE FROM questions WHERE id = ?";
+$sql = "DELETE FROM users WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $id);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {
-    echo "問題が削除されました";
+    echo "ユーザーが削除されました";
 } else {
     echo "削除に失敗しました";
 }
@@ -27,7 +27,7 @@ if ($stmt->affected_rows > 0) {
 $stmt->close();
 $conn->close();
 
-header("Location: admin_quiz.php");
+header("Location: admin_user.php");
 exit;
 
 ?>
