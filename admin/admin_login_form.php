@@ -19,16 +19,25 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 // SQLのクエリの作成と実行
-// usersテーブルから指定されたメールアドレスとパスワードに一致するユーザーを検索するSQLクエリを実行
-$sql = "SELECT id , email, password FROM users WHERE email = '$email' AND password = '$password'";
-$result = $conn->query($sql);
+// ユーザーのメールアドレスに基づいてデータベースからユーザー情報を取得
+$stmt = $conn->prepare("SELECT id, email, password FROM users WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if ($result->num_rows > 0) {
-    // ログイン成功、ページリダイレクト
+// パスワード検証とリダイレクト
+if ($row = $result->fetch_assoc()) {
+    // パスワードの検証
+    if (password_verify($password, $row['password'])) {
+        // パスワードが一致する場合
         header("Location: admin_quiz.php");
+    } else {
+        // パスワードが一致しない場合
+        echo "ログインに失敗しました";
+    }
 } else {
-    // パスワードが一致しない場合
-    echo "ログインに失敗しました。";
+    // メールアドレスが存在しない場合
+    echo "ログインに失敗しました";
 }
 
 // DB接続のクローズ
