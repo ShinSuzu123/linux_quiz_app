@@ -67,9 +67,15 @@ table {
 button {
   width: 100%;
   padding: 10px;
-  background-color: black;
-  color: #fff;
+  background: linear-gradient(to bottom, black, #ccc); /* 黒から配色へのグラデーション */
+  color: white;
   border: none; /*ボーダー無効*/
+  transition: background-color 0.3s, color 0.3s; /*アニメーション効果*/
+}
+
+button:hover {
+  background-color: white; /* ホバー時の背景色 */
+  color: black; /* ホバー時の文字色 */
 }
 
 .list_btn {
