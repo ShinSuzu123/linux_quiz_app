@@ -21,18 +21,25 @@ $password = $_POST['password'];
 $age = $_POST['age'];
 $address = $_POST['address'];
 
+// パスワードのハッシュ化
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 // SQLのクエリの作成と実行
 // usersテーブルに登録情報を挿入
-$sql = "INSERT INTO users (name, email, tel, password, age, address) VALUES ('$name', '$email', '$tel', '$password', '$age', '$address')";
+// プリぺアードステイトメントを使用してSQLクエリを実行する
+$stmt = $conn->prepare("INSERT INTO users (name, email, tel, password, age, address) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $name, $email, $tel, $hashed_password, $age, $address);
+$stmt->execute();
 
-if ($conn->query($sql) === TRUE) {
+if ($stmt->affected_rows > 0) {
     // フォームのリダイレクト
     header("Location: ../101_quiz.html");
 } else {
-    echo "エラー！:" . $sql . "<br>" . $conn->error;
+    echo "エラー！:" . $conn->error;
 }
 
-// DB接続のクローズ
+// ステートメントとDB接続のクローズ
+$stmt -> close();
 $conn -> close();
 
 ?>
