@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>LPIC lv.1 アタック!</title>
+    <title>LPIC lv.1 ファイト!</title>
     <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
     <link href="../common/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header class="header">
-        <h1 class="quiz-logo">LPIC lv.1 アタック!</h1>
+        <h1 class="quiz-logo">LPIC lv.1 ファイト!</h1>
         <nav class="nav">
             <ul class="list">
                 <li class="item"><a href="../certification/logout.php">ログアウト</a></li>
