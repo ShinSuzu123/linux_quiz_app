@@ -28,6 +28,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssssss", $question_text, $option1, $option2, $option3, $option4, $correct_option, $category, $explanation);
 $stmt->execute();
 
+// 登録の成功か失敗かの処理
 if ($stmt->affected_rows > 0) {
     echo "<script>alert('問題が登録されました'); window.location.href='admin_quiz.php';</script>";
 } else {

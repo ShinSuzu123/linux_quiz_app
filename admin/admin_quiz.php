@@ -29,11 +29,14 @@
         </div>
 
         <h2>問題 管理</h2>
-        <!-- 問題を一覧として出す -->
+
+        <!-- 問題の登録ページへ飛ぶ -->
         <div>
             <button><a href='register_question_form.php'>問題を登録</a></button>
         </div>
         
+        <!-- 問題を一覧として表示 -->
+        <!-- 欄の名称 -->
         <table>
             <tr>
                 <th>ID</th>
@@ -48,6 +51,7 @@
                 <th>編集</th>
                 <th>削除</th>
             </tr>
+            <!-- 問題の呼び出し -->
             <?php include 'display_questions.php'; ?>
         </table>
     </main>

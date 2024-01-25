@@ -21,6 +21,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
+// データベースから問題が正常に取得出来たかの確認
 if ($row) {
     include('edit_form.php');
 } else {

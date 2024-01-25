@@ -17,8 +17,8 @@ $sql = "SELECT id, question_text, option1, option2, option3, option4, correct_op
 $result = $conn->query($sql);
 
 // 問題データの表示
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+if ($result->num_rows > 0) { // 行の数が0より大きい場合い以下の処理が実行
+    while($row = $result->fetch_assoc()) { // 結果セットの次の行を連想配列として取得
         echo "<tr>";
         echo "<td>" . $row["id"] . "</td>";
         echo "<td>" . $row["question_text"] . "</td>";
@@ -33,7 +33,7 @@ if ($result->num_rows > 0) {
         echo "<td><a href='delete_questions.php?id=" . $row["id"] . "' class='delete-link'>削除</a></td>";
         echo "</tr>";
     }
-} else {
+} else { // データがない場合
     echo "<tr><td colspan='11'>問題がありません</td></tr>";
 }
 

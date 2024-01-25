@@ -29,11 +29,13 @@
         </div>
 
         <h2>User 管理</h2>
-        <!-- User一覧 -->
+
         <div>
             <button><a href='register_user_form.php'>Userを登録</a></button>
         </div>
 
+        <!-- ユーザー 一覧として表示 -->
+        <!-- 欄の名称 -->
         <table>
             <tr>
                 <th>ID</th>
@@ -46,6 +48,7 @@
                 <th>編集</th>
                 <th>削除</th>
             </tr>
+            <!-- ユーザーの呼び出し -->
             <?php include 'display_user.php'; ?>
         </table>
 

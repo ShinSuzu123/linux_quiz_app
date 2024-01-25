@@ -21,6 +21,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 $row = $result->fetch_assoc();
 
+// データベースからユーザーが正常に取得できたかの確認
 if ($row) {
     include('edit_user_form.php');
 } else {

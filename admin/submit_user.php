@@ -26,6 +26,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssssss", $name, $tel, $email, $password, $age, $address);
 $stmt->execute();
 
+// 登録の成功か失敗かの処理
 if ($stmt->affected_rows > 0) {
     echo "<script>alert('ユーザーが登録されました'); window.location.href='admin_user.php';</script>";
 } else {

@@ -11,11 +11,13 @@ if ($conn->connect_error) {
     die("接続失敗:" . $conn->connect_error);
 }
 
+// データベースからのユーザーデータの取得
 $sql = "SELECT id, name, tel, email, password, age, address FROM users";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+// ユーザーデータの表示
+if ($result->num_rows > 0) { // 行の数が0より大きい場合い以下の処理が実行
+    while($row = $result->fetch_assoc()) {  // 結果セットの次の行を連想配列として取得
         echo "<tr>";
         echo "<td>" . $row ["id"] . "</td>";
         echo "<td>" . $row["name"] . "</td>";
@@ -27,7 +29,7 @@ if ($result->num_rows > 0) {
         echo "<td><a href='edit_user.php?id=" . $row["id"] . "' class='edit-link'>編集</a></td>";
         echo "<td><a href='delete_users.php?id=" . $row["id"]. "' class='delete-link'>削除</a></td>";
     }
-} else {
+} else { // データがない場合
     echo "<tr><td colspan='11'>問題がありません</td></tr>";
 }
 
