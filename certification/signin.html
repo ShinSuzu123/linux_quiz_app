@@ -14,7 +14,7 @@
     <main>
         <h2>新規登録</h2>
 
-        <form action="signin_form.php" method="post">
+        <form id= "register-form" action="signin_form.php" method="post">
             <table>
                 <tr>
                     <th>項目</th>
@@ -44,11 +44,11 @@
                     <td>住所</td>
                     <td><input type="address" name="address" required></td>
                 </tr>
+                <tr>
+                    <td><button><a href="../certification/login.html">アカウントお持ちの方はこちら >></a></button></td>
+                    <td><button type="submit">送信</button></td>
+                </tr>
             </table>
-            <div id="buttons-container">
-                <button class="signin_submit" type="submit">送信</button>
-                <button id="login"><a href="../certification/login.html">アカウントお持ちの方はこちら >></a></button>
-            </div>
         </form>
     </main>
 

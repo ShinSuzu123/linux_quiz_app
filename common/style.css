@@ -172,9 +172,32 @@ a {
   color: black;
 }
 
-
 /* 新規登録ページ */
+/* フォームテーブル */
+#register-form table {
+  width: 90%; /* テーブル要素の幅を画面の80%に設定*/
+  margin: 5% auto; /* 上下に5%にする、左右に自動で余白を設定する*/
+}
 
+#register-form th, #register-form td {
+  padding: 10px; /* セル内の余白 */
+}
+
+#register-form button {
+  display: block; /* ボタンをブロック要素に設定 */
+  width: 90%; /* ボタンの幅を50%に設定　*/
+  margin: 5px auto; /* 上下に10px、左右に自動で余白を設定する*/
+  padding: 10px; /* ボタン内 余白*/
+  background-color: black; /* 基本は黒色 */
+  color: white; /* 基本の文字色は白色に*/
+  border: none; /*ボーダー無効*/
+  transition: background-color 0.3s, color 0.3s; /*背景色と文字色のアニメーション効果*/
+}
+
+#register-form button:hover a, #register-form button:hover {
+  background-color: #ccc; /* ホバー時の背景色を白色に設定*/
+  color: black; /* ホバー時の文字色を黒色に設定 */
+}
 
 
 /* お問い合わせフォーム*/
