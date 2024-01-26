@@ -20,13 +20,12 @@ $option2 = $_POST['option2'];
 $option3 = $_POST['option3'];
 $option4 = $_POST['option4'];
 $correct_option = $_POST['correct_option'];
-$explanation = $_POST['explanation'];
 $category = $_POST['category'];
 
 // データベースの更新
-$sql = "UPDATE questions SET question_text = ?, option1 = ?, option2 = ?, option3 = ?, option4 = ?, correct_option = ?, explanation = ?, category = ? WHERE id = ?";
+$sql = "UPDATE questions SET question_text = ?, option1 = ?, option2 = ?, option3 = ?, option4 = ?, correct_option = ?, category = ? WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssi", $question_text, $option1, $option2, $option3, $option4, $correct_option, $explanation, $category, $id);
+$stmt->bind_param("ssssssssi", $question_text, $option1, $option2, $option3, $option4, $correct_option, $category, $id);
 $stmt->execute();
 
 // 更新結果

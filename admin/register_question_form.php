@@ -57,10 +57,6 @@
                     <td><input type="text" name="category" required></td>
                 </tr>
                 <tr>
-                    <td>解説</td>
-                    <td><textarea name="explanation" rows="4"></textarea></td>
-                </tr>
-                <tr>
                     <td colspan="2">
                         <button type="submit" value="登録" class="register-button">登録</button>
                     </td>

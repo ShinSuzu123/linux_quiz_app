@@ -47,10 +47,6 @@
                     <td><input type="text" name="correct_option" id="correct_option" value="<?php echo htmlspecialchars($row['correct_option']); ?>"></td>
                 </tr>
                 <tr>
-                    <td><strong><label for="explanation">解説</label></strong></td>
-                    <td><textarea type="text" name="explanation" id="explanation"><?php echo htmlspecialchars($row['explanation']); ?></textarea></td>
-                </tr>
-                <tr>
                     <td><strong><label for="category">カテゴリ</label></strong></td>
                     <td><input type="text" name="category" id="category" value="<?php echo htmlspecialchars($row['category']); ?>"></td>
                 </tr>

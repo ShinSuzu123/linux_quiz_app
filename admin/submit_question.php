@@ -20,12 +20,11 @@ $option3 = $_POST['option3'];
 $option4 = $_POST['option4'];
 $correct_option = $_POST['correct_option'];
 $category = $_POST['category'];
-$explanation = $_POST['explanation'];
 
 // データベースに登録
-$sql = "INSERT INTO questions (question_text, option1, option2, option3, option4, correct_option, category, explanation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO questions (question_text, option1, option2, option3, option4, correct_option, category) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssss", $question_text, $option1, $option2, $option3, $option4, $correct_option, $category, $explanation);
+$stmt->bind_param("ssssssss", $question_text, $option1, $option2, $option3, $option4, $correct_option, $category);
 $stmt->execute();
 
 // 登録の成功か失敗かの処理

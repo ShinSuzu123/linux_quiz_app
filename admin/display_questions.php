@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // データベースからの問題データの取得
-$sql = "SELECT id, question_text, option1, option2, option3, option4, correct_option, explanation, category FROM questions";// 問題自体を登録しているテーブルを呼ぶ
+$sql = "SELECT id, question_text, option1, option2, option3, option4, correct_option, category FROM questions";// 問題自体を登録しているテーブルを呼ぶ
 $result = $conn->query($sql);
 
 // 問題データの表示
@@ -27,7 +27,6 @@ if ($result->num_rows > 0) { // 行の数が0より大きい場合い以下の�
         echo "<td>" . $row["option3"] . "</td>";
         echo "<td>" . $row["option4"] . "</td>";
         echo "<td>" . $row["correct_option"] . "</td>";
-        echo "<td>" . $row["explanation"] . "</td>";
         echo "<td>" . $row["category"] . "</td>";
         echo "<td><a href='edit_get.php?id=" . $row["id"] . "' class='edit-link'>編集</a></td>";
         echo "<td><a href='delete_questions.php?id=" . $row["id"] . "' class='delete-link'>削除</a></td>";
