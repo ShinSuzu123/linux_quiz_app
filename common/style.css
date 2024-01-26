@@ -67,9 +67,15 @@ table {
 button {
   width: 100%;
   padding: 10px;
-  background-color: black;
-  color: #fff;
+  background-color: black; /* 基本は黒色 */
+  color: white; /* 基本の文字色は白色に*/
   border: none; /*ボーダー無効*/
+  transition: background-color 0.3s, color 0.3s; /*背景色と文字色のアニメーション効果*/
+}
+
+button:hover {
+  background-color: #ccc; /* ホバー時の背景色を白色に設定*/
+  color: black; /* ホバー時の文字色を黒色に設定 */
 }
 
 .list_btn {
@@ -165,18 +171,111 @@ a {
 #buttons-container button a {
   color: black;
 }
-
-
+/*-----------------------------------------------------------------*/
 /* 新規登録ページ */
+/* フォームテーブル */
+#register-form table {
+  width: 90%; /* テーブル要素の幅を画面の80%に設定*/
+  margin: 5% auto; /* 上下に5%にする、左右に自動で余白を設定する*/
+}
 
+#register-form th, #register-form td {
+  padding: 10px; /* セル内の余白 */
+}
 
+#register-form button {
+  display: block; /* ボタンをブロック要素に設定 */
+  width: 90%; /* ボタンの幅を50%に設定　*/
+  margin: 5px auto; /* 上下に10px、左右に自動で余白を設定する*/
+  padding: 10px; /* ボタン内 余白*/
+  background-color: black; /* 基本は黒色 */
+  color: white; /* 基本の文字色は白色に*/
+  border: none; /*ボーダー無効*/
+  transition: background-color 0.3s, color 0.3s; /*背景色と文字色のアニメーション効果*/
+}
+
+#register-form button:hover a, #register-form button:hover {
+  background-color: #ccc; /* ホバー時の背景色を白色に設定*/
+  color: black; /* ホバー時の文字色を黒色に設定 */
+}
+
+/* ログインページ */
+/* フォームテーブル */
+#login-form table {
+  width: 90%; /* テーブル要素の幅を画面の80%に設定*/
+  margin: 5% auto; /* 上下に5%にする、左右に自動で余白を設定する*/
+}
+
+#login-form th, #register-form td {
+  padding: 10px; /* セル内の余白 */
+}
+
+#login-form button {
+  display: block; /* ボタンをブロック要素に設定 */
+  width: 90%; /* ボタンの幅を50%に設定　*/
+  margin: 5px auto; /* 上下に10px、左右に自動で余白を設定する*/
+  padding: 10px; /* ボタン内 余白*/
+  background-color: black; /* 基本は黒色 */
+  color: white; /* 基本の文字色は白色に*/
+  border: none; /*ボーダー無効*/
+  transition: background-color 0.3s, color 0.3s; /*背景色と文字色のアニメーション効果*/
+}
+
+#login-form button:hover a, #login-form button:hover {
+  background-color: #ccc; /* ホバー時の背景色を白色に設定*/
+  color: black; /* ホバー時の文字色を黒色に設定 */
+}
+
+/* 管理者ログインページ */
+#admin-login-form table {
+  width: 90%; /* テーブル要素の幅を画面の80%に設定*/
+  margin: 5% auto; /* 上下に5%にする、左右に自動で余白を設定する*/
+}
+
+#admin-login-form th, #register-form td {
+  padding: 10px; /* セル内の余白 */
+}
+
+#admin-login-form button {
+  display: block; /* ボタンをブロック要素に設定 */
+  width: 90%; /* ボタンの幅を50%に設定　*/
+  margin: 5px auto; /* 上下に10px、左右に自動で余白を設定する*/
+  padding: 10px; /* ボタン内 余白*/
+  background-color: black; /* 基本は黒色 */
+  color: white; /* 基本の文字色は白色に*/
+  border: none; /*ボーダー無効*/
+  transition: background-color 0.3s, color 0.3s; /*背景色と文字色のアニメーション効果*/
+}
+
+#admin-login-form button:hover a, #login-form button:hover {
+  background-color: #ccc; /* ホバー時の背景色を白色に設定*/
+  color: black; /* ホバー時の文字色を黒色に設定 */
+}
 
 /* お問い合わせフォーム*/
-.inquiry_submit {
-  background-color: black;
-  color: white;
-  padding: 10px 15px;
-  border: none;
+#inquiry-form  {
+  width: 90%; /* テーブル要素の幅を画面の80%に設定*/
+  margin: 5% auto; /* 上下に5%にする、左右に自動で余白を設定する*/
+}
+
+#inquiry-form th, #register-form td {
+  padding: 10px; /* セル内の余白 */
+}
+
+#inquiry-form button {
+  display: block; /* ボタンをブロック要素に設定 */
+  width: 90%; /* ボタンの幅を50%に設定　*/
+  margin: 5px auto; /* 上下に10px、左右に自動で余白を設定する*/
+  padding: 10px; /* ボタン内 余白*/
+  background-color: black; /* 基本は黒色 */
+  color: white; /* 基本の文字色は白色に*/
+  border: none; /*ボーダー無効*/
+  transition: background-color 0.3s, color 0.3s; /*背景色と文字色のアニメーション効果*/
+}
+
+#inquiry-form button:hover{
+  background-color: #ccc; /* ホバー時の背景色を白色に設定*/
+  color: black; /* ホバー時の文字色を黒色に設定 */
 }
 
 /*---------------------------------------------------*/
