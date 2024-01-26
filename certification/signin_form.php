@@ -1,4 +1,7 @@
 <?php
+// セッションを開始する
+session_start();
+
 // DB接続情報
 $host = "localhost";
 $username = "testuser";
@@ -31,9 +34,13 @@ $stmt = $conn->prepare("INSERT INTO users (name, email, tel, password, age, addr
 $stmt->bind_param("ssssss", $name, $email, $tel, $hashed_password, $age, $address);
 $stmt->execute();
 
+// 登録成功の確認
 if ($stmt->affected_rows > 0) {
-    // フォームのリダイレクト
+    // 新規登録したユーザーIDをセッションに保存
+    $_SESSION['user_id'] = $conn->insert_id;
+    // 登録後にリダイレクトする
     header("Location: ../101_quiz.html");
+    exit;
 } else {
     echo "エラー！:" . $conn->error;
 }

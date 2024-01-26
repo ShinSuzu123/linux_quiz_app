@@ -1,8 +1,11 @@
 <?php
+// セッションの開始
+session_start();
+
 // DB接続情報
 $host = "localhost";
 $username = "testuser";
-$dbpassword = "testpass";
+$dbpassword = "testpass"; //passwordは他で使うのでdbpasswordにする
 $dbname = "lpic_quiz";
 
 // DBへの接続設定
