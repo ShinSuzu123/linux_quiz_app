@@ -25,7 +25,7 @@ $category = $_POST['category'];
 // データベースの更新
 $sql = "UPDATE questions SET question_text = ?, option1 = ?, option2 = ?, option3 = ?, option4 = ?, correct_option = ?, category = ? WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssssi", $question_text, $option1, $option2, $option3, $option4, $correct_option, $category, $id);
+$stmt->bind_param("sssssssi", $question_text, $option1, $option2, $option3, $option4, $correct_option, $category, $id);
 $stmt->execute();
 
 // 更新結果
