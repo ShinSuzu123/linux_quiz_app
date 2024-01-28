@@ -46,7 +46,6 @@
                 <th>３</th>
                 <th>４</th>
                 <th>正解</th>
-                <th>解説</th>
                 <th>カテゴリ</th>
                 <th>編集</th>
                 <th>削除</th>
