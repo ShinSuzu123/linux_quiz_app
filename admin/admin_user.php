@@ -22,36 +22,42 @@
         <div class="quiz_btn">
             <table>
                 <tr>
-                    <td class="list_btn"><button><a href="admin_quiz.php">問題 管理</a></button></td>
-                    <td class="list_btn"><button><a href="admin_user.php">User 管理</a></button></td>
+                    <td class="list_btn"><button onclick="location.href='admin_quiz.php'">問題 管理</button></td>
+                    <td class="list_btn"><button onclick="location.href='admin_user.php'">User 管理</button></td>
                 </tr>
             </table>
         </div>
 
         <h2>User 管理</h2>
 
-        <div>
-            <button><a href='register_user_form.php'>Userを登録</a></button>
+        <!-- ユーザー登録 -->
+        <div class="quiz_btn">
+            <table>
+                <tr>
+                    <td class="list_btn"><button onclick="location.href='register_user_form.php'">ユーザーを登録する</button></td>
+                </tr>
+            </table>
         </div>
 
         <!-- ユーザー 一覧として表示 -->
         <!-- 欄の名称 -->
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>名前</th>
-                <th>電話番号</th>
-                <th>Eメール</th>
-                <th>パスワード</th>
-                <th>年齢</th>
-                <th>住所</th>
-                <th>編集</th>
-                <th>削除</th>
-            </tr>
-            <!-- ユーザーの呼び出し -->
-            <?php include 'display_user.php'; ?>
-        </table>
-
+        <div id="table-quiz">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>名前</th>
+                    <th>電話番号</th>
+                    <th>Eメール</th>
+                    <th>パスワード</th>
+                    <th>年齢</th>
+                    <th>住所</th>
+                    <th>編集</th>
+                    <th>削除</th>
+                </tr>
+                <!-- ユーザーの呼び出し -->
+                <?php include 'display_user.php'; ?>
+            </table>
+        </div>
     </main>
 
     <footer class="footer">

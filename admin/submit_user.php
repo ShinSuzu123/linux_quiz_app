@@ -20,10 +20,13 @@ $password = $_POST['password'];
 $age = $_POST['age'];
 $address = $_POST['address'];
 
+// パスワードハッシュ
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 // データベースに登録
 $sql = "INSERT INTO users (name, tel, email, password, age, address) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssss", $name, $tel, $email, $password, $age, $address);
+$stmt->bind_param("ssssss", $name, $tel, $email, $hashed_password, $age, $address);
 $stmt->execute();
 
 // 登録の成功か失敗かの処理

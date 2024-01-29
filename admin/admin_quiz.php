@@ -22,8 +22,8 @@
         <div class="quiz_btn">
             <table>
                 <tr>
-                    <td class="list_btn"><button><a href="admin_quiz.php">問題 管理</a></button></td>
-                    <td class="list_btn"><button><a href="admin_user.php">User 管理</a></button></td>
+                    <td class="list_btn"><button onclick="location.href='admin_quiz.php'">問題 管理</button></td>
+                    <td class="list_btn"><button onclick="location.href='admin_user.php'">User 管理</button></td>
                 </tr>
             </table>
         </div>
@@ -31,28 +31,34 @@
         <h2>問題 管理</h2>
 
         <!-- 問題の登録ページへ飛ぶ -->
-        <div>
-            <button><a href='register_question_form.php'>問題を登録</a></button>
+        <div class="quiz_btn">
+            <table>
+                <tr>
+                    <td class="list_btn"><button onclick="location.href='register_question_form.php'">問題を登録する</button></td>
+                </tr>
+            </table>
         </div>
-        
+
         <!-- 問題を一覧として表示 -->
         <!-- 欄の名称 -->
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>問題</th>
-                <th>１</th>
-                <th>２</th>
-                <th>３</th>
-                <th>４</th>
-                <th>正解</th>
-                <th>カテゴリ</th>
-                <th>編集</th>
-                <th>削除</th>
-            </tr>
-            <!-- 問題の呼び出し -->
-            <?php include 'display_questions.php'; ?>
-        </table>
+        <div id="table-quiz">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>問題</th>
+                    <th>１</th>
+                    <th>２</th>
+                    <th>３</th>
+                    <th>４</th>
+                    <th>正解</th>
+                    <th>カテゴリ</th>
+                    <th>編集</th>
+                    <th>削除</th>
+                </tr>
+                <!-- 問題の呼び出し -->
+                <?php include 'display_questions.php'; ?>
+            </table>
+        </div>
     </main>
 
     <footer class="footer">

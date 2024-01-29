@@ -19,30 +19,43 @@
 
     <main>
         <h2>問題 登録</h2>
+        
+        <div class="quiz_btn">
+            <table>
+                <tr>
+                    <td class="list_btn"><button onclick="location.href='admin_quiz.php'">戻る</button></td>
+                </tr>
+            </table>
+        </div>
+
         <form action="submit_question.php" method="post">
             <table>
                 <tr>
-                    <td>問題テキスト</td>
+                    <th>項目</th>
+                    <th>登録欄</th>
+                </tr>
+                <tr>
+                    <td><strong>問題テキスト</strong></td>
                     <td><input type="text" name="question_text"></td>
                 </tr>
                 <tr>
-                    <td>選択肢1</td>
+                    <td><strong>選択肢1</strong></td>
                     <td><input type="text" name="option1" required></td>
                 </tr>
                 <tr>
-                    <td>選択肢2</td>
+                    <td><strong>選択肢2</strong></td>
                     <td><input type="text" name="option2" required></td>
                 </tr>
                 <tr>
-                    <td>選択肢3</td>
+                    <td><strong>選択肢3</strong></td>
                     <td><input type="text" name="option3" required></td>
                 </tr>
                 <tr>
-                    <td>選択肢4</td>
+                    <td><strong>選択肢4</strong></td>
                     <td><input type="text" name="option4" required></td>
                 </tr>
                 <tr>
-                    <td>正解</td>
+                    <td><strong>正答</strong></td>
                     <td>
                         <select name="correct_option" required>
                             <option value="1">1</option>
@@ -53,7 +66,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>カテゴリ</td>
+                    <td><strong>カテゴリ</strong></td>
                     <td><input type="text" name="category" required></td>
                 </tr>
                 <tr>
@@ -66,7 +79,6 @@
     </main>
 
     <footer class="footer">
-        <button><strong><a href="admin_quiz.php">戻る</a><strong></button>
     </footer>
 </body>
 </html>

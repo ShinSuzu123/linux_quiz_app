@@ -21,10 +21,13 @@ $password = $_POST['password'];
 $age = $_POST['age'];
 $address = $_POST['address'];
 
+// パスワードハッシュ化
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 // データベースの更新
 $sql = "UPDATE users SET name = ?, tel = ?, email = ?, password = ?, age = ? , address = ? WHERE id = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ssssssi", $name, $tel, $email, $password, $age, $address, $id);
+$stmt->bind_param("ssssssi", $name, $tel, $email, $hashed_password, $age, $address, $id);
 $stmt->execute();
 
 // 更新結果

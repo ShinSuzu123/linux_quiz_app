@@ -19,6 +19,15 @@
 
     <main>
         <h2>問題 編集</h2>
+
+        <div class="quiz_btn">
+            <table>
+                <tr>
+                    <td class="list_btn"><button onclick="location.href='admin_user.php'">戻る</button></td>
+                </tr>
+            </table>
+        </div>
+
         <form action="update_users.php" method="post">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']);?>">
             <table>
@@ -56,7 +65,6 @@
     </main>
 
     <footer class="footer">
-        <button><strong><a href="admin_quiz.php">戻る</a><strong></button>
     </footer>
 </body>
 </html>
