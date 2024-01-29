@@ -24,7 +24,7 @@ $sql = "INSERT INTO inquiry (name, email, tel, message) VALUES ('$name', '$email
 
 if ($conn->query($sql) === TRUE) {
     // フォームのリダイレクト
-    header("Location: inquiry.html?status=success");
+    echo "<script>alert('送信しました！'); window.location.href='inquiry.html'</script>";
 } else {
     echo "エラー！:" . $sql . "<br>" . $conn->error;
 }
