@@ -34,17 +34,19 @@ $stmt = $conn->prepare("INSERT INTO users (name, email, tel, password, age, addr
 $stmt->bind_param("ssssss", $name, $email, $tel, $hashed_password, $age, $address);
 $stmt->execute();
 
-// 登録成功の確認
-if ($stmt->affected_rows > 0) {
-    // 新規登録したユーザーIDをセッションに保存
-    $_SESSION['user_id'] = $conn->insert_id;
-    // 登録後にリダイレクトする
-    header("Location: ../101_quiz.html");
-    exit;
-} else {
-    echo "エラー！:" . $conn->error;
+// POSTメソッドで送信されたかどうかの確認
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // 登録成功の確認
+    if ($stmt->affected_rows > 0) {
+        // 新規登録したユーザーIDをセッションに保存
+        $_SESSION['user_id'] = $conn->insert_id;
+        // 登録後にリダイレクトする
+        echo "<script>alert('新規登録が完了しました'); window.location.href='../101_quiz.html'</script>";
+        exit;
+    } else {
+        echo "<script>alert('新規登録に失敗しました'); window.location.href='signin.html'</script>";
+    }
 }
-
 // ステートメントとDB接続のクローズ
 $stmt -> close();
 $conn -> close();

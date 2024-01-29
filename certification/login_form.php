@@ -36,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $row['id'];
             // パスワードが一致する場合
             echo "<script>alert('ログイン成功'); window.location.href='../101_quiz.html'</script>";
-            // header("Location: ../101_quiz.html");
         } else {
             // パスワードが一致しない場合
             echo "<script>alert('ログインに失敗しました'); window.location.href='login.html'</script>";
