@@ -152,7 +152,7 @@ a {
 
 /*問題一覧の縦幅*/
 #questions-container {
-  max-height: 580px; /* 任意の高さに設定 */
+  max-height: 535px; /* 任意の高さに設定 */
   overflow-y: auto; /* 縦方向のみスクロール可能 */
 }
 
