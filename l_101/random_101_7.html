@@ -20,14 +20,18 @@
     <main>
         <h2>システムアーキテクチャ ランダム</h2>
 
+        <!-- 完了ボタンと前のページに戻るボタン -->
+        <div class="quiz_btn">
+            <table>
+                <tr>
+                    <td class="list_btn"><button id="finish-quiz">解答 完了！</button></td>
+                    <td class="list_btn"><button onclick="location.href='../101_quiz.html'">前ページへ</button></td>
+                </tr>
+            </table>
+        </div>
+
         <!-- 問題一覧 -->
         <div id="questions-container"></div>
-
-        <!-- 完了ボタンと前のページに戻るボタン -->
-        <div id="buttons-container">
-            <button id="finish-quiz">完了！</button>
-            <button id="before_page" onclick="location.href='../101_quiz.html'">前のページ戻る</button>
-        </div>
 
         <script>
             $(document).ready(function() {

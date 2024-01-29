@@ -158,18 +158,27 @@ a {
 
 /*完了ボタンと戻るボタン*/
 #buttons-container {
-  display: flex;
-  justify-content: space-between;
+  width: 100%; /* テーブルの幅を画面いっぱいに設定 */
+  border-collapse: collapse; /* セルの枠線を重ねて一本線にする */
+}
+
+#buttons-container {
+  border: none; /* セルの枠線を消す */
+  padding: 10px; /* セル内の余白 */
 }
 
 #buttons-container button {
   background-color: #ccc;
   color: black;
   padding: 10px 20px;
+  border: none; /* 枠線をなくす*/
+  cursor: pointer; /* カーソルをポインターにする */
+  transition: background-color 0.3s, color 0.3s; /* 色の変更にアニメーションを追加 */
 }
 
-#buttons-container button a {
-  color: black;
+#buttons-container button:hover {
+  background-color: black; /* 背景色を黒に変更*/
+  color: white; /* 文字色を白に変更*/
 }
 /*-----------------------------------------------------------------*/
 /* 新規登録ページ */
